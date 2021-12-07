@@ -1,0 +1,57 @@
+\chapter{Apéndice}
+
+\section*{Funcionamiento del programa}
+
+Para comenzar con el empleo del programa es necesario compilar el código. La herramienta que genera el ejecutable y otros archivos fuente y no fuente se conoce como make. Una vez hecho esto, se produce el ejecutable:
+
+$compute-enthalpy-atG4.x$
+El funcionamiento de este programa se muestra a continuación:
+$# ./compute-enthalpy-atG4.x molecule.dat$
+$…$
+\newline
+Cuando el programa se ejecuta de manera adecuada, se observará un letrero como el siguiente:
+$#$
+\newline
+Al correr el programa sin un archivo de lectura se visualizará la siguiente información:
+$#$
+
+\subsection*{Posibles mejoras al programa}
+El código desarrollado para este programa puede ser mejorado incorporando las siguientes actualizaciones 
+
+\subsection*{Restricciones de ejecución}
+Para evitar una ejecución del programa de manera indefinida, es oportuno incorporar diferentes mensajes de error que permitan al usuario, identificar un posible problema. Las restricciones podrían ser las siguientes:
+\begin{itemize}
+	\item Al ingresar un archivo que no contenga la información necesaria
+	\item Cuando no sea posible leer el archivo de entrada
+	\item Si el archivo de entrada no cuenta con un formato determinado
+\end{itemize}
+
+\subsection*{Banderas de entrada}
+ Incorporar banderas de entrada al código del programa permitirá tener distintas opciones en el cálculo de la entalpía de formación.  Las opciones son necesarias porque calcularían el valor de la entalpía de formación por distintos métodos y valores. Estas, podrían ser mostradas al usar la bandera “-h”. Las banderas pueden ser utilizadas de la siguiente manera:
+\newline
+$# ./compute-enthalpy-atG4.x -h$
+\newline
+Usando:
+\newline
+$# ./compute-enthalpy-atG4.x -flag  molecule.dat$
+\newline
+Dónde molecule.dat es el archivo de entrada y  -flag es la bandera de entrada que contiene las diferentes opciones para modificar el cálculo y son:
+\newline
+$-t$
+\newline
+Utilizar el valor experimental del átomo de Carbono reportado por Tajti.
+\newline
+A. Tajti et al. J. Chem. Phys. 121,2004, 11599.
+\newliine
+$-a$
+\newline
+Utilizar los valores experimentales de los átomos de Hidrógeno, Carbono, Nitrógeno, Oxigeno y Azufre reportados por  ARGONNE_DATA from J. Phys. Chem. 100 17460 (1996).
+\newline
+$-s$ 
+\newline
+Guardar el archivo de salida después de haberse ejecutado el algoritmo correctamente. 
+\newline
+$-h$ 
+\newline
+Muestra un menú de ayuda para el manejo del programa. 
+

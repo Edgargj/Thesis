@@ -1,0 +1,48 @@
+\chapter{Resultados y discusión}
+\label{cap:resultados} 
+La esencia de esta tesis fue la creación de un programa de cómputo que calcula entalpias de formación de compuestos orgánicos a 298 K a partir de archivos de salida del software Gaussian. En consecuencia, es necesaria una explicación detallada de todo esto. Por lo que he dividido esta descripción en dos secciones;
+El algoritmo y su uso para la obtención de resultados.
+
+\section{Algoritmo (diseño del programa)}
+La entalpía de formación fue calculada a partir del método de atomización y varias correcciones térmicas de la energía interna. La Física Estadística nos permitió separar la función de partición en un producto de los componentes traslacionales, rotacionales, vibracionales, electrónicas y nucleares, con la finalidad de obtener la función de estado de nuestro interés. Todo ello, culminó en la creación de un programa de cómputo que automatiza el cálculo de entalpias de formación (flujo de trabajo). Además, se produjo una versión cuya arquitectura de software permitirá en un futuro, añadir métodos diferentes a G4 de una manera rápida. El procedimiento general se observa en el siguiente diagrama de flujo.
+
+\section{Código}
+El lenguaje de programación utilizado para la creación de este programa se conoce como c++. El motivo principal de su uso fue la implementación de una programación orientada a objetos que fragmentó el código en partes independientes, esto, permite reciclar el código para futuros proyectos. A continuación, se explican las diferentes clases que existen en este programa.
+
+\subsection{Clases}
+A continuación, se enlistan los nombres de las clases utilizadas para este programa:
+\begin{itemize}
+	\item Enthalpyinputdata
+	\item Method
+	\item EnthalpyG4
+	\item Enthalpyoutputdata 
+\end{itemize}
+
+\subsection*{Clase Enthalpyinputdata}
+Esta clase se encarga de leer los datos (provenientes de Gaussian) del archivo de entrada. Los datos que lee esta clase son:
+\begin{itemize}
+	\item Tipo de método 
+	\item Número de especies atómicas
+	\item Energía G4 a 0 K
+	\item Entalpía G4 a 0 K
+	\item Número atómico y número de átomos 
+	\item Tipo de molécula (lineal o no lineal)
+	\item Tipo de aproximación usada (Nicolaides o Rotor Rígido y Oscilador Armónico)
+	\item Número de modos de vibración
+	\item Frecuencias vibracionales de la molécula 
+\end{itemize}
+La finalidad de esta clase es determinar la información indispensable para comenzar con el cálculo de la entalpía. 
+
+\subsection*{Clase Method}
+La clase Method es utilizada para seleccionar el tipo de método que se realizó en Gaussian, y así, devolver valores específicos del método para los átomos de Hidrógeno, Carbono, Oxígeno, Nitrógeno, Flúor y Azufre.
+
+\subsection*{Clase EnthalpyG4}
+La función de esta clase es realizar las operaciones aritméticas para obtener el calor de formación de la molécula, la entalpia de formación a 298 K por el método de atomización y finalmente, la entalpía de formación a 298 K con correcciones en la energía interna. 
+
+\subsection*{Clase Enthalpyoutputdata}
+Enthalpyoutputdata es la clase encargada de devolver los valores calculados anteriormente, imprimiéndolos en la pantalla a través de la línea de comandos.
+
+
+\section{Conjunto de pruebas}
+
+
