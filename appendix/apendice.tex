@@ -2,45 +2,47 @@
 
 \section*{Funcionamiento del programa}
 
-Para comenzar con el empleo del programa es necesario compilar el código. La herramienta que genera el ejecutable y otros archivos fuente y no fuente se conoce como make. Una vez hecho esto, se produce el ejecutable:
-%
+Para comenzar con el empleo del programa es necesario compilar el código. La herramienta que genera el ejecutable y otros archivos fuente y no fuente se conoce como \textbf{make}. Una vez hecho esto, se produce el ejecutable:
 \begin{lstlisting}
-$compute-enthalpy-atG4.x
+$compute-enthalpy-atG4.x$
 \end{lstlisting}
-%
-El funcionamiento de este programa se muestra a continuaci\'on:
-%
-\begin{lstlisting}[basicstyle=\footnotesize]
-On branch main
-Your branch is up to date with 'origin/main'.
 
-Untracked files:
-  (use "git add <file>..." to include in what will be committed)
-	appendix/apendice.log
-	tesis.aux
-	tesis.bbl
-	tesis.blg
-	tesis.lof
-	tesis.log
-	tesis.lot
-	tesis.pdf
-	tesis.synctex(busy)
-	tesis.synctex.gz
-	tesis.toc
-
-nothing added to commit but untracked files present (use "git add" to track)
-\end{lstlisting}
-Cuando el programa se ejecuta de manera adecuada, se observará un letrero como el siguiente:
+\newpage
+El funcionamiento de este programa se muestra a continuación:
 \begin{lstlisting}
-$#$
+$./compute-enthalpy-atG4.x  CH3OH-G4.txt$
+
+=============================================================
+     New calculation of molecular enthalpies of formation
+
+Enthalpies of formation of gaseous atoms at 0 K and thermal 
+corrections for elements in their standard state at 298.16 K from:
+
+      NIST-JANAF Thermochemical Tables J. Physics Chem. 
+                Data Monograph 9, 1998, 1-1951.
+=============================================================
+Heats of formation:
+0K          -190.11 kJ mol-1
+0K          -45.41 kcal mol-1
+Using Nicolaides method:
+298K        -201.21 kJ mol-1
+298K        -48.06 kcal mol-1
+Using G4: 
+298K        -201.21 kJ mol-1
+298K        -48.06 kcal mol-1
+=============================================================
 \end{lstlisting}
+Cuando el programa se ejecuta de manera adecuada, se observará el letrero anterior.
+\newpage
 Al correr el programa sin un archivo de lectura se visualizará la siguiente información:
 \begin{lstlisting}
-$#$
+$./compute-enthalpy-atG4.x$ 
+terminate called after throwing an instance of std::logic_error
+what():  basic_string::_M_construct null not valid
+Abortado (core generado)
 \end{lstlisting}
-
 \subsection*{Posibles mejoras al programa}
-El código desarrollado para este programa puede ser mejorado incorporando las siguientes actualizaciones 
+El código desarrollado para este programa puede ser mejorado incorporando las siguientes actualizaciones. 
 
 \subsection*{Restricciones de ejecución}
 Para evitar una ejecución del programa de manera indefinida, es oportuno incorporar diferentes mensajes de error que permitan al usuario, identificar un posible problema. Las restricciones podrían ser las siguientes:
@@ -53,17 +55,17 @@ Para evitar una ejecución del programa de manera indefinida, es oportuno incorp
 \subsection*{Banderas de entrada}
  Incorporar banderas de entrada al código del programa permitirá tener distintas opciones en el cálculo de la entalpía de formación.  Las opciones son necesarias porque calcularían el valor de la entalpía de formación por distintos métodos y valores. Estas, podrían ser mostradas al usar la bandera “-h”. Las banderas pueden ser utilizadas de la siguiente manera:
 \begin{lstlisting}
-$# ./compute-enthalpy-atG4.x -h$
+$./compute-enthalpy-atG4.x -h$
 \end{lstlisting}
-Usando:
+Por lo tanto, la nomeclatura del programa sería:
 \begin{lstlisting}
-$# ./compute-enthalpy-atG4.x -flag  molecule.dat$
+$./compute-enthalpy-atG4.x -flag  molecule.dat$
 \end{lstlisting}
-D\'onde molecule.dat es el archivo de entrada y  -flag es la bandera de entrada que contiene las diferentes opciones para modificar el c\'alculo y son:
+Dónde \textbf{molecule.dat} es el archivo de entrada y \textbf{-flag} es la bandera de entrada que contiene las diferentes opciones para modificar el cálculo. Las banderas pueden ser las siguientes:
 \begin{lstlisting}
 $-t$
 \end{lstlisting}
-Utilizar el valor experimental del átomo de Carbono reportado por Tajti. A. Tajti et al. J. Chem. Phys. 121, 2004, 11599.
+Utilizar el valor experimental del átomo de Carbono reportado por Tajti\cite{tajti2004}.
 \begin{lstlisting}
 $-a$
 \end{lstlisting}
@@ -76,4 +78,3 @@ Guardar el archivo de salida después de haberse ejecutado el algoritmo correcta
 $-h$ 
 \end{lstlisting}
 Muestra un menú de ayuda para el manejo del programa. 
-

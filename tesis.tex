@@ -12,7 +12,7 @@
 % Usar draft para visualizar los ``badboxes''
 %\usepackage[Bjornstrup]{fncychap}
 \usepackage[Lenny]{fncychap}
-\usepackage{latexsym,amssymb}
+\usepackage{latexsym,amssymb,amsfonts}
 \usepackage{amsmath}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
@@ -43,16 +43,19 @@
 \usepackage{indentfirst}
 \lstset{language=C++%
 ,basicstyle=\normalsize\ttfamily%
-%,backgroundcolor=\color{black!20}%
+,backgroundcolor=\color{black!20}%
 ,breaklines=true%
-,keywordstyle=\bfseries\color{magenta!90}%
+,keywordstyle=\bfseries\color{blue}%
 ,commentstyle=\itshape\color{green!40!black}%
 ,identifierstyle=\color{black}%
 ,stringstyle=\color{red!95!black}%
-%,numbers=left%
+,frame=single%
+,deletekeywords={for, and, not, , std,}%
+,otherkeywords={=, $}%
+,numbers=left%
 ,numberstyle=\tiny%
-,identifierstyle=\color{blue}%
-%,title=\lstname%
+,identifierstyle=\color{black}%
+,title=\lstname%
 }
 %\usepackage{pstricks}
 %\usepackage[fonts=true]{mpostinl}
@@ -156,7 +159,8 @@
 \markright{Referencias}
 \addcontentsline{toc}{chapter}{Referencias}
 \bibliographystyle{bib/general.bst}
-\bibliography{bib/listado.bib}
+\bibliography{bib/2listado.bib}
+%\bibliography{listado2.bib}
 %TERMINA DOCUMENTO
 \end{document}
 
