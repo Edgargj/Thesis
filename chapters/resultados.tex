@@ -155,7 +155,7 @@ Hecho lo anterior, se realiza el cálculo de la entalpía de formación a 0 K de
 \end{equation}
 
 \begin{equation}
-	\Delta H^{\circleddash}_{f0}(CH_3OH) = (-190.1126 \:kJ\cdot mol^{-1})(0.023888 \:kcal)
+\Delta H^{\circleddash}_{f0}(CH_3OH) = (-190.1126 \:kJ\cdot mol^{-1})(0.023888 \:kcal)
 \label{eq:5.10}
 \end{equation}
 
@@ -164,34 +164,132 @@ Hecho lo anterior, se realiza el cálculo de la entalpía de formación a 0 K de
 \label{eq:5.11}
 \end{equation}
 
-
-
-
-
- 
+\newpage
 \subsection{Paso 6 del diagrama de flujo general}
 
-El paso 6 se encarga de cuantificar la diferencia entre las  dos cantidades G4 (298 K y 0 K) leídas en el paso 1. Además, se realiza una conversión de unidades de energía (hartree a kJ). En las ecuaciones siguientes, se observa este paso con detalle. 
+El paso 6 se encarga de cuantificar la diferencia entre las  dos cantidades G4 (298 K y 0 K) leídas en el paso 1, ecuaciones \ref{eq:5.12} y \ref{eq:5.13}. Además, se realiza una conversión de unidades de energía (hartree a kJ), ecuaciones \ref{eq:5.14} y \ref{eq:5.15}.
 
+\begin{equation}
+\Delta \Delta H^{\circleddash}(CH_3OH) = G4 \:Entalpía - G4 \:(0 K)
+\label{eq:5.12}
+\end{equation}
+
+\begin{equation}
+\Delta \Delta H^{\circleddash}(CH_3OH) = -115.647489 - (-115.651767)\:h
+\label{eq:5.13}
+\end{equation}
+
+\begin{equation}
+\Delta \Delta H^{\circleddash}(CH_3OH) = (0.004278)(2625.4997480 \:kJ\cdot mol^{-1})
+\label{eq:5.14}
+\end{equation}
+
+\begin{equation}
+\Delta \Delta H^{\circleddash}(CH_3OH) = 11.23188\:kJ\cdot mol^{-1}
+\label{eq:5.15}
+\end{equation}
+
+\newpage
 \subsection{Paso 7 del diagrama de flujo general}
 
-En el paso 7 se obtiene el valor de la entalpía de formación a 298 K (sumando el calor de formación, la diferencia de las dos cantidades G4, y restando los incrementos correspondientes para los elementos de la molécula en sus estados estándar), en consecuencia, son usados los valores obtenidos en los pasos 5 y 6. Para terminar, se realiza una conversión de unidades de energía (kJ a kcal).
+En el paso 7 se obtiene el valor de la entalpía de formación a 298 K (sumando el calor de formación, la diferencia de las dos cantidades G4 y restando los incrementos correspondientes para los elementos de la molécula en sus estados estándar), en consecuencia, son usados los valores obtenidos en los pasos 5 y 6 (veáse las ecuaciones \ref{eq:5.16}, \ref{eq:5.17}, \ref{eq:5.18} y \ref{eq:5.19}. Para terminar, se realiza una conversión de unidades de energía de kJ a kcal (ecuaciones \ref{eq:5.20} y \ref{eq:5.21}).
 
+\begin{multline}
+\Delta H^{\circleddash}_{f298}(CH_3OH) = \Delta H^{\circleddash}_{f0}(CH_{3}OH) + \Delta \Delta H^{\circleddash} (CH_{3}OH) \\ - (\Delta \Delta H^{\circleddash} (C) + 2 \Delta \Delta H^{\circleddash}(H_{2}) + \frac{1}{2} \Delta \Delta H^{\circleddash}(O_{2}))
+\label{eq:5.16}
+\end{multline}
+
+\begin{multline}
+\Delta H^{\circleddash}_{f298}(CH_3OH) = -190.1126 + 11.23188  \\ - (1.05100 + 2(8.46700) + \frac{1}{2} (8.67000))\:kJ\cdot mol^{-1}
+\label{eq:5.17}
+\end{multline}
+
+\begin{equation}
+\Delta H^{\circleddash}_{f298}(CH_3OH) = -190.1126 + 11.23188 - 22.3265\:kJ\cdot mol^{-1}
+\label{eq:5.18}
+\end{equation}
+
+\begin{equation}
+\Delta H^{\circleddash}_{f298}(CH_3OH) = -201.21\:kJ\cdot mol^{-1}
+\label{eq:5.19}
+\end{equation}
+
+\begin{equation}
+\Delta H^{\circleddash}_{f298}(CH_3OH) = (-201.21 \:kJ\cdot mol^{-1})(0.023888 \:kcal)
+\label{eq:5.20}
+\end{equation}
+
+\begin{equation}
+\Delta H^{\circleddash}_{f298}(CH_3OH) = -48.06 \:kcal
+\label{eq:5.21}
+\end{equation}
+
+\newpage
 \subsection{Paso 8 y 9 del diagrama de flujo general}
 
-Los pasos 8 y 9 son de los más importantes del programa, porque calculan la energía interna (paso 6) a partir de la física estadística. Comienzan con dos sentencias de condición que evalúan parámetros de la molécula, como son:
+Los pasos 8 y 9 son de los más importantes del programa, porque calculan la energía interna (paso 6) a partir de la física estadística. Se inicia con dos sentencias de condición que evalúan parámetros de la molécula, como son:
 \begin{enumerate}
-
-	\item Si es lineal o no lo es.
-	\item Qué tipo de aproximación usar.
+	\item Qué tipo de modelo de aproximación usar.
 	\item El número de modos de vibración.
 	\item Frecuencias vibracionales.
+	\item Si es lineal o no lo es.
 \end{enumerate}
-Después, continua con una estructura de control que se repetirá el mismo número de veces que el número de modos de vibración que tiene la molécula. La iteración usa tres fórmulas que provienen de la termodinámica estadística (ecuacion 1,2,3) y permiten calcular la energía interna como una suma de las contribuciones vibracionales, rotacionales, traslacionales y electrónicas. El valor que se obtiene en la primera iteración es acumulativo para los subsecuentes. Concluida la determinación, se devuelve la suma total de la energía interna.
+
+El tipo de aproximación usada solo puede tener dos valores, 0 y 1. Sí el archivo de entrada de la molécula muestra un valor de 0 significa que será usada la aproximación de Nicolaides (no tomara en cuenta las frecuencias vibraciones de la molécula menores a 260 $cm^{-1}$ y devolverá $\frac{1}{2}$ de $RT$ para la contribución vibracional por cada frecuencia que sea menor a 260 $cm^{-1}$). Y sí el valor es 1, la aproximación del rotor rigido y el oscilador armónico sera usada para los cálculos. 
+
+También existen dos posibles valores en el archivo de entrada para el parámetro de la linealidad de la molécula. Un valor de 1 devolverá un RT en la contribución rotacional, en cambio, sí el valor es 0, el condicional retornará un $\frac{3}{2}$ de $RT$ en la contribución rotacional.
+
+Después, inicia una estructura de control que se repetirá el mismo número de veces que el número de modos de vibración de la molécula, veáse las ecuaciones \ref{eq:5.22} y \ref{eq:5.23}, donde $N$ es el número especies atómicas que existen en la molécula estas ecuaciones son para moléculas lineales o no lineales, respectivamente. 
+
+
+\begin{equation}
+E_v= \sum^{3N-5}_{k} h\nu_k\:(v_k+\frac{1}{2})
+\label{eq:5.22}
+\end{equation}
+
+\begin{equation}
+E_v= \sum^{3N-6}_{k} h\nu_k\:(v_k+\frac{1}{2})
+\label{eq:5.23}
+\end{equation}
+
+La iteración usa fórmulas que provienen de la termodinámica estadística (ecuacion \ref{eq:5.24}, \ref{eq:5.25} y \ref{eq:5.26}) y permiten calcular la energía interna como una suma de las contribuciones vibracionales, rotacionales, traslacionales y electrónicas (ecuación \ref{eq:5.28}). La contribución traslacional siempre tendrá el valor de $\frac{3}{2} RT$ para cualquier molécula (ecuación \ref{eq:5.26}). Además, se agrega un RT adicional a la energía interna para convertir la energía en entalpía (el llamado término PV, ecuación \ref{eq:5.27}). Cabe aclarar, que el valor obtenido en la primera iteración es acumulativo para los subsecuentes. Concluida la determinación, se devuelve la suma total de la energía interna.
+
+\begin{equation}
+[H(T)-H(0)]_{vib}\:=RT \sum_i \left(\frac{h\nu_i}{kT}\right)\left(\frac{e^{\frac{-h\nu_i}{kT}}}{1-e^{\frac{-h\nu_i}{kT}}}\right)
+\label{eq:5.24}
+\end{equation}
+
+\begin{equation}
+[H(T)-H(0)]_{rot}\:=\:\frac{3}{2}RT
+\label{eq:5.25}
+\end{equation}
+	
+\begin{equation}
+[H(T)-H(0)]_{trans}\:=\:\frac{3}{2}RT
+\label{eq:5.26}
+\end{equation}
+
+\begin{equation}
+PV\:=RT
+\label{eq:5.27}
+\end{equation}
+	
+\begin{multline}
+[H(298.15)-H(0)]= ...\\ ...=[H(T)-H(0)]_{vib}+[H(T)-H(0)]_{rot}+[H(T)-H(0)]_{trans}+PV
+\label{eq:5.28}
+\end{multline}
+
+
+\begin{equation}
+[H(298.15)-H(0)]= RT \sum_i \left(\frac{h\nu_i}{kT}\right)\left(\frac{e^{\frac{-h\nu_i}{kT}}}{1-e^{\frac{-h\nu_i}{kT}}}\right)+ \frac{3}{2}RT + \frac{3}{2}RT + RT
+\end{equation}
+
+
  
 \subsection{Paso 10 del diagrama de flujo general}
 
 El paso 10 simplemente remplaza el valor obtenido anteriormente, por el valor calculado en el paso 6 en la determinación de la entalpía de formación a 298 K, es decir, en el paso 7. Para terminar, se hace una conversión de unidades de energía (kJ a kcal).
+
 
 \subsection{Paso 11 del diagrama de flujo general}
 El último paso de diagrama se encarga de devolver los valores calculados anteriormente, imprimiéndolos en la pantalla a través de la línea de comandos de siguiente forma:
