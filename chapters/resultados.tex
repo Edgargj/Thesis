@@ -4,14 +4,15 @@ El algoritmo y su uso para la obtención de resultados.
 
 \section{Algoritmo (diseño del programa)}
 La entalpía de formación fue calculada a partir del método de atomización y varias correcciones térmicas de la energía interna. La Física Estadística nos permitió separar la función de partición en un producto de los componentes traslacionales, rotacionales, vibracionales, electrónicas y nucleares, con la finalidad de obtener la función de estado de nuestro interés. Todo ello, culminó en la creación de un programa de cómputo que automatiza el cálculo de entalpias de formación (flujo de trabajo). Además, se produjo una versión cuya arquitectura de software permitirá en un futuro, añadir métodos diferentes a G4 de una manera rápida. El procedimiento general se observa en el siguiente diagrama de flujo.
-\newpage
+
+
 \begin{figure}[hbtp]
 \begin{center}
 \includegraphics[width=\textwidth]{graphs/diagrama-flujo}
 \caption{Diagrama de flujo general}
 \end{center}
 \end{figure}
-\newpage
+
 A continuación, se explica a detalle cada uno de los pasos del diagrama de flujo general junto con un ejemplo. Para esto, se eligió al metanol, que llamaremos desde ahora como molécula X ( Mol.X ).
 \begin{figure}[hbtp]
 \begin{center}
@@ -20,7 +21,6 @@ A continuación, se explica a detalle cada uno de los pasos del diagrama de fluj
 \end{center}
 \end{figure}
 
-\newpage
 \subsection {Paso 1 del diagrama de flujo general}
 
 El programa comienza con el uso del archivo de entrada, que contiene la información necesaria de la molécula para iniciar con la lectura de los datos. Para la \textbf{molécula X}, el archivo de entrada tendrá la siguiente forma:
@@ -75,7 +75,8 @@ G4
 %	\item 3831.1143
 %\end{enumerate}
 %\end{multicols}
-\newpage
+
+
 \subsection{Paso 2 del diagrama de flujo general}
 
 Ahora, se leerá el archivo de entrada de la siguiente forma:
@@ -164,13 +165,13 @@ Hecho lo anterior, se realiza el cálculo de la entalpía de formación a 0 K de
 \label{eq:5.11}
 \end{equation}
 
-\newpage
+
 \subsection{Paso 6 del diagrama de flujo general}
 
-El paso 6 se encarga de cuantificar la diferencia entre las  dos cantidades G4 (298 K y 0 K) leídas en el paso 1, ecuaciones \ref{eq:5.12} y \ref{eq:5.13}. Además, se realiza una conversión de unidades de energía (hartree a kJ), ecuaciones \ref{eq:5.14} y \ref{eq:5.15}.
+El paso 6 se encarga de cuantificar la diferencia entre las  dos cantidades G4 (0 K y 298 K) leídas en el paso 1 (ecuación \ref{eq:5.13}). Además, se realiza una conversión de unidades de energía (hartree a kJ), ecuaciones \ref{eq:5.14} y \ref{eq:5.15}.
 
 \begin{equation}
-\Delta \Delta H^{\circleddash}(CH_3OH) = G4 \:Entalpía - G4 \:(0 K)
+	\Delta \Delta H^{\circleddash}(CH_3OH) = G4 \textrm{Entalpia} - G4 \:(0 K)
 \label{eq:5.12}
 \end{equation}
 
@@ -189,7 +190,7 @@ El paso 6 se encarga de cuantificar la diferencia entre las  dos cantidades G4 (
 \label{eq:5.15}
 \end{equation}
 
-\newpage
+
 \subsection{Paso 7 del diagrama de flujo general}
 
 En el paso 7 se obtiene el valor de la entalpía de formación a 298 K (sumando el calor de formación, la diferencia de las dos cantidades G4 y restando los incrementos correspondientes para los elementos de la molécula en sus estados estándar), en consecuencia, son usados los valores obtenidos en los pasos 5 y 6 (veáse las ecuaciones \ref{eq:5.16}, \ref{eq:5.17}, \ref{eq:5.18} y \ref{eq:5.19}. Para terminar, se realiza una conversión de unidades de energía de kJ a kcal (ecuaciones \ref{eq:5.20} y \ref{eq:5.21}).
@@ -224,7 +225,7 @@ En el paso 7 se obtiene el valor de la entalpía de formación a 298 K (sumando 
 \label{eq:5.21}
 \end{equation}
 
-\newpage
+
 \subsection{Paso 8 y 9 del diagrama de flujo general}
 
 Los pasos 8 y 9 son de los más importantes del programa, porque calculan la energía interna (paso 6) a partir de la física estadística. Se inicia con dos sentencias de condición que evalúan parámetros de la molécula, como son:
@@ -239,57 +240,65 @@ El tipo de aproximación usada solo puede tener dos valores, 0 y 1. Sí el archi
 
 También existen dos posibles valores en el archivo de entrada para el parámetro de la linealidad de la molécula. Un valor de 1 devolverá un RT en la contribución rotacional, en cambio, sí el valor es 0, el condicional retornará un $\frac{3}{2}$ de $RT$ en la contribución rotacional.
 
-Después, inicia una estructura de control que se repetirá el mismo número de veces que el número de modos de vibración de la molécula, veáse las ecuaciones \ref{eq:5.22} y \ref{eq:5.23}, donde $N$ es el número especies atómicas que existen en la molécula estas ecuaciones son para moléculas lineales o no lineales, respectivamente. 
+Después, inicia una estructura de control que se repetirá el mismo número de veces que el número de modos de vibración de la molécula (una molécula que tiene $N$ especies atómicas puede tener solamente $3N-6$ modos fundamentales de vibración para una molécula no lineal, o $3N-5$ si la molécula es lineal).
 
+
+La iteración usa fórmulas que provienen de la termodinámica estadística (ecuacion \ref{eq:5.22}, \ref{eq:5.23} y \ref{eq:5.24}) y permiten calcular la energía interna como una suma de las contribuciones vibracionales, rotacionales, traslacionales y electrónicas (ecuación \ref{eq:5.26}), donde \textit{\textbf{R}} es la constante de los gases, \textit{\textbf{T}} es la temperatura en Kelvin, \textit{\textbf{h}} es la constante de Planck, $v_i$ es el número de onda n-ésimo de la molécula, \textit{\textbf{k}} es la constante de Boltzmann y \textit{\textbf{e}} es el número de Euler.  
+
+ La contribución traslacional siempre tendr\'a el valor de $\frac{3}{2} RT$ para cualquier mol\'ecula (ecuación \ref{eq:5.24}). Además, se agrega un RT adicional a la energía interna para convertir la energía en entalpía (el llamado término PV, ecuación \ref{eq:5.25}). Cabe aclarar, que el valor obtenido en la primera iteración es acumulativo para los subsecuentes. Concluida la determinación, se devuelve la suma total de la energía interna.
 
 \begin{equation}
-E_v= \sum^{3N-5}_{k} h\nu_k\:(v_k+\frac{1}{2})
+[H(T)-H(0)]_{vib}=RT \sum_i \left(\frac{h\nu_i}{kT}\right)\left(\frac{e^{\frac{-h\nu_i}{kT}}}{1-e^{\frac{-h\nu_i}{kT}}}\right)
 \label{eq:5.22}
 \end{equation}
 
 \begin{equation}
-E_v= \sum^{3N-6}_{k} h\nu_k\:(v_k+\frac{1}{2})
+[H(T)-H(0)]_{rot}=\frac{3}{2}RT
 \label{eq:5.23}
 \end{equation}
-
-La iteración usa fórmulas que provienen de la termodinámica estadística (ecuacion \ref{eq:5.24}, \ref{eq:5.25} y \ref{eq:5.26}) y permiten calcular la energía interna como una suma de las contribuciones vibracionales, rotacionales, traslacionales y electrónicas (ecuación \ref{eq:5.28}). La contribución traslacional siempre tendrá el valor de $\frac{3}{2} RT$ para cualquier molécula (ecuación \ref{eq:5.26}). Además, se agrega un RT adicional a la energía interna para convertir la energía en entalpía (el llamado término PV, ecuación \ref{eq:5.27}). Cabe aclarar, que el valor obtenido en la primera iteración es acumulativo para los subsecuentes. Concluida la determinación, se devuelve la suma total de la energía interna.
-
+	
 \begin{equation}
-[H(T)-H(0)]_{vib}\:=RT \sum_i \left(\frac{h\nu_i}{kT}\right)\left(\frac{e^{\frac{-h\nu_i}{kT}}}{1-e^{\frac{-h\nu_i}{kT}}}\right)
+[H(T)-H(0)]_{tras}=\frac{3}{2}RT
 \label{eq:5.24}
 \end{equation}
 
 \begin{equation}
-[H(T)-H(0)]_{rot}\:=\:\frac{3}{2}RT
+PV=RT
 \label{eq:5.25}
 \end{equation}
-	
+
 \begin{equation}
-[H(T)-H(0)]_{trans}\:=\:\frac{3}{2}RT
+[H(298.15)-H(0)]=[H(T)-H(0)]_{vib}+[H(T)-H(0)]_{rot}+[H(T)-H(0)]_{tras}+PV
 \label{eq:5.26}
 \end{equation}
 
+Para la \textbf{molécula X} el número de modos de vibración será 12 (es una molécula no lineal), por lo consiguiente, la ecuación \ref{eq:5.22} se repetirá 12 veces con cada una de las frecuencias de la molécula. El resultado final es la suma de las contribuciones de la energía interna, véase la ecuación \ref{eq:5.27}.
+
 \begin{equation}
-PV\:=RT
+[H(298.15)-H(0)]= 1315.1747 + 3718.4568 + 3718.4568 + 2478.9712 = 11.2310kJ\cdot mol^{-1}
 \label{eq:5.27}
 \end{equation}
-	
-\begin{multline}
-[H(298.15)-H(0)]= ...\\ ...=[H(T)-H(0)]_{vib}+[H(T)-H(0)]_{rot}+[H(T)-H(0)]_{trans}+PV
-\label{eq:5.28}
-\end{multline}
+
+\subsection{Paso 10 del diagrama de flujo general}
+
+El paso 10 simplemente remplaza el valor obtenido anteriormente (energía interna), por el valor calculado en el paso 6 en la determinación de la entalpía de formación a 298 K, es decir, en el paso 7. Para terminar, se hace una conversión de unidades de energía (kJ a kcal).
 
 
 \begin{equation}
-[H(298.15)-H(0)]= RT \sum_i \left(\frac{h\nu_i}{kT}\right)\left(\frac{e^{\frac{-h\nu_i}{kT}}}{1-e^{\frac{-h\nu_i}{kT}}}\right)+ \frac{3}{2}RT + \frac{3}{2}RT + RT
+\Delta H^{\circleddash}_{f298}(CH_3OH) = -190.1126 + 11.2310 - 22.3265\:kJ\cdot mol^{-1}
+\label{eq:5.30}
+\end{equation}
+
+\begin{equation}
+\Delta H^{\circleddash}_{f298}(CH_3OH) = -201.21\:kJ\cdot mol^{-1}
+\label{eq:5.31}
 \end{equation}
 
 
- 
-\subsection{Paso 10 del diagrama de flujo general}
-
-El paso 10 simplemente remplaza el valor obtenido anteriormente, por el valor calculado en el paso 6 en la determinación de la entalpía de formación a 298 K, es decir, en el paso 7. Para terminar, se hace una conversión de unidades de energía (kJ a kcal).
-
+\begin{equation}
+\Delta H^{\circleddash}_{f298}(CH_3OH) = -48.06 \:kcal
+\label{eq:5.32}
+\end{equation}
 
 \subsection{Paso 11 del diagrama de flujo general}
 El último paso de diagrama se encarga de devolver los valores calculados anteriormente, imprimiéndolos en la pantalla a través de la línea de comandos de siguiente forma:
@@ -352,6 +361,84 @@ La función de esta clase es realizar las operaciones aritméticas para obtener 
 \subsection*{Clase Enthalpyoutputdata}
 Enthalpyoutputdata es la clase encargada de devolver los valores calculados anteriormente, imprimiéndolos en la pantalla a través de la línea de comandos.
 
+
+
 \section{Conjunto de pruebas}
+
+Es fundamental corroborar que el programa funciona de forma correcta, por lo que se realizaron pruebas con moléculas que cuentan con entalpías de formación conocidas y por lo tanto, han sido reportadas en la literatura científica (los archivos de salida fueron obtenidos a partir del paquete de software Gasussian09). Las moléculas elegidas son isómeros del nitrobenzaladeído y son:
+
+\begin{itemize}
+\item 2-nitrobenzaldehído (2NBA)
+\item 3-nitrobenzaldehído (3NBA)
+\item 4-nitrobenzaldehído (4NBA)
+\end{itemize}
+
+Los derivados de nitrobenzaladehído son compuestos aromáticos que tienen un gran número de aplicaciones. Entre ellas se encuentran los intermediarios en la preparación de productos químicos de alto valor agregado, pesticidas, materiales ópticos no lineales, productos farmacéuticos, bases de Schiff, etc. 
+
+\begin{figure}[hbtp]
+\begin{center}
+\includegraphics[width=\textwidth]{graphs/n-NBA}
+\caption{Estructuras moleculares del 2-nitrobenzaldehído (2NBA), 3-nitrobenzaldehído (3NBA) y 4-nitrobenzaldehído (4NBA).}
+\end{center}
+\end{figure}
+
+\subsection{Conjunto de pruebas: 2NBA, 3NBA y 4NBA}
+
+Las entalpías de formación de las moléculas fueron calculadas utilizando la energía G4 a 0 K, además, se utilizaron las aproximaciones de Nicolaides, oscilador armónico y rotor rígido en todos las moléculas. Los valores de la entalpía de formación a 298 K calculados por nuestro programa del 2-nitrobenzaldehído (2NBA), 3-nitrobenzaldehído (3NBA) y 4-nitrobenzaldehído (4NBA) se muestran a continuación.
+
+%2NBALa-2.txt
+\begin{lstlisting}
+=============================================================
+     New calculation of molecular enthalpies of formation
+
+Enthalpies of formation of gaseous atoms at 0 K and thermal 
+corrections for elements in their standard state at 298.16 K from:
+
+      NIST-JANAF Thermochemical Tables J. Physics Chem. 
+     		Data Monograph 9, 1998, 1-1951.
+=============================================================
+Heats of formation:
+0K          -8.58 kJ mol-1
+0K          -2.05 kcal mol-1
+Using Nicolaides method:
+298K        -30.82 kJ mol-1
+298K        -7.36 kcal mol-1
+Using G4:
+298K        -28.19 kJ mol-1
+298K        -6.73 kcal mol-1
+=============================================================
+\end{lstlisting}
+
+%2NBALb-2.txt
+\begin{lstlisting}
+=============================================================
+     New calculation of molecular enthalpies of formation
+
+Enthalpies of formation of gaseous atoms at 0 K and thermal 
+corrections for elements in their standard state at 298.16 K from:
+
+      NIST-JANAF Thermochemical Tables J. Physics Chem. 
+     		Data Monograph 9, 1998, 1-1951.
+=============================================================
+Heats of formation:
+0K          -16.26 kJ mol-1
+0K          -3.88 kcal mol-1
+Using Nicolaides method:
+298K        -38.73 kJ mol-1
+298K        -9.25 kcal mol-1
+Using G4:
+298K        -36.25 kJ mol-1
+298K        -8.66 kcal mol-1
+=============================================================
+\end{lstlisting}
+
+
+
+
+
+
+
+
+
 
 
