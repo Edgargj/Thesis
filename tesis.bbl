@@ -1,0 +1,37 @@
+\begin{thebibliography}{1}
+
+\bibitem{McQuarrie1976}
+McQuarrie,
+\newblock {\em Statistical Mechanics},
+\newblock Harper and Row, 1976.
+
+\bibitem{Simmie2015}
+Simmie J.~M. y Somers K.~P.,
+\newblock {\em The Journal of Physical Chemistry A} {\bf 119}, 7235 (2015),
+\newblock PMID: 25580800.
+
+\bibitem{Nicolaides1996}
+Nicolaides A., Rauk A., Glukhovtsev M.~N., y Radom L.,
+\newblock {\em The Journal of Physical Chemistry} {\bf 100}, 17460 (1996).
+
+\bibitem{cplusplus}
+Allain A.,
+\newblock {\em Jumping into C++},
+\newblock 2015.
+
+\bibitem{Ximello2020}
+Ximello A., Ramos F., Rojas A., Hernández-Pérez J.~M., Camarillo E.~A.,
+  Solano-Altamirano J.~M., Sandoval-Lira J., y Flores H.,
+\newblock {\em Journal of Chemical \& Engineering Data} {\bf 65}, 4935 (2020).
+
+\bibitem{NIST1998}
+Chase M.,
+\newblock {\em NIST-JANAF Thermochemical Tables, 4th Edition},
+\newblock American Institute of Physics, 1998.
+
+\bibitem{Tajti2004}
+Tajti A., Szalay P.~G., Császár A.~G., Kállay M., Gauss J., Valeev E.~F.,
+  Flowers B.~A., Vázquez J., y Stanton J.~F.,
+\newblock {\em The Journal of Chemical Physics} {\bf 121}, 11599 (2004).
+
+\end{thebibliography}
