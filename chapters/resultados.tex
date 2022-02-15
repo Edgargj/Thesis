@@ -1,15 +1,22 @@
 \chapter{Resultados y discusión}
-La esencia de esta tesis fue la creación de un programa de cómputo científico que calcula entalpías de formación de compuestos orgánicos a T = 298.15 K a partir de archivos de salida del software \textbf{Gaussian09}. En consecuencia, es necesaria una explicación detallada de todo esto. Por lo que he dividido esta descripción en dos secciones;
-el algoritmo y su uso para la obtención de resultados.
+
+La esencia de esta tesis fue la creación de un programa de cómputo científico llamando \textbf{EnthalpyG4}, que calcula entalpías de formación de compuestos orgánicos a T = 298.15 K partiendo de archivos de salida de \textbf{Gaussian09}. En consecuencia, es necesaria una explicación detallada de todo esto. Por lo que he dividido esta descripción en dos secciones; el algoritmo y su uso para la obtención de resultados. \\
+
+Es importante mencionar que \textbf{EnthalpyG4} fue inspirado por un programa de cómputo científico que también calcula entalpías de formación de compuestos orgánicos, el lenguaje de programación usado fue \textbf{FORTRAN} en su versión 90. Dicho programa fue creado por el coasesor de esta tesis, \textbf{Dr. Julio Manuel Pérez Hernández}.
+
+
+
+
 
 \section{Algoritmo (diseño del programa)}
-La entalpía de formación fue calculada a partir del método de atomización y varias correcciones térmicas de la energía interna. La Física Estadística nos permitió separar la función de partición en un producto de los componentes traslacionales, rotacionales, vibracionales, electrónicas y nucleares, con la finalidad de obtener la función de estado de nuestro interés \cite{McQuarrie1976}. Todo ello, culminó en la creación de un programa de cómputo que automatiza el cálculo de entalpías de formación (flujo de trabajo). Además, se produjo una versión cuya arquitectura de software permitirá en un futuro, añadir métodos diferentes a G4 de una manera rápida \cite{Simmie2015}. El procedimiento general se observa en el siguiente diagrama de flujo. A continuación, se explica a detalle cada uno de los pasos del diagrama de flujo general junto con un ejemplo. Para esto, se eligió al metanol, que llamaremos desde ahora como molécula X ( Mol.X ).
+La entalpía de formación fue calculada a partir del método de atomización \cite{Lewars2016} y varias correcciones térmicas de la energía interna \cite{Nicolaides1996}. La Física Estadística nos permitió separar la función de partición en un producto de los componentes traslacionales, rotacionales, vibracionales, electrónicas y nucleares, con la finalidad de obtener la función de estado de nuestro interés \cite{McQuarrie1976}. Todo ello, culminó en la creación de un programa de cómputo que automatiza el cálculo de entalpías de formación. Además, se produjo una versión cuya arquitectura de software permitirá en un futuro, añadir métodos diferentes a G4 de una manera rápida \cite{Curtiss2007, Simmie2015}. El procedimiento general se observa en el siguiente diagrama de flujo (véase la figura \ref{diagrama-flujo}). A continuación, se explica a detalle cada uno de los pasos del diagrama de flujo general junto con un ejemplo. Para esto, se eligió al metanol (figura \ref{metanol}), que llamaremos desde ahora como \textbf{molécula X} ( Mol.X ).
 
 
 \begin{figure}[hbtp]
 \begin{center}
 \includegraphics[width=\textwidth]{graphs/diagrama-flujo}
 \caption{Diagrama de flujo general}
+\label{diagrama-flujo}
 \end{center}
 \end{figure}
 
@@ -17,13 +24,14 @@ La entalpía de formación fue calculada a partir del método de atomización y 
 \begin{figure}[hbtp]
 \begin{center}
 \includegraphics[scale=1]{graphs/methanol.png}
-\caption{Molécula de metanol, utilizada para explicar el diagrama de flujo general del programa.}
+\caption{Molécula de metanol, utilizada para explicar el diagrama de flujo general del programa EnthalpyG4.}
+\label{metanol}
 \end{center}
 \end{figure}
 
 \subsection {Paso 1 del diagrama de flujo general}
 
-El programa comienza con el uso del archivo de entrada, que contiene la información necesaria de la molécula para iniciar con la lectura de los datos. Para la \textbf{molécula X}, el archivo de entrada tendrá la siguiente forma:
+El programa comienza con el uso de un archivo de entrada que contiene la información necesaria de la molécula para iniciar con la lectura de los datos. Para la \textbf{molécula X}, el archivo de entrada tendrá la siguiente forma:
 \begin{lstlisting}
 G4
 3
@@ -94,19 +102,20 @@ Ahora, se leerá el archivo de entrada de la siguiente forma:
 	\item Frecuencias vibracionales de la molécula.
 \end{enumerate}
 
-Las líneas 1, 2, 3, 4 y 5 siempre se encargarán de leer la categoría del método, el número de especies atómicas, la energía G4 a T = 0 K, la entalpía G4 a T = 0 K, el número atómico y el número de átomos, respectivamente. Mientras que las líneas 6, 7, 8 y 9 no siempre ocuparan el mismo lugar, porque estas, dependen de líneas anteriores. 
-\\Por ejemplo, para la \textbf{molécula X}, el número de especies atómicas serán tres: Hidrógeno, Carbono y Oxígeno. En consecuencia, la línea 5 se repetirá tres veces para dichas especies. Después, se leerá el tipo de molécula (lineal o no lineal), posteriormente, el modelo de aproximación usada (Nicolaides o Rotor Rígido y Oscilador Armónico), por último, el número de modos de vibración que influirá en las frecuencias vibracionales de la molécula. Al terminar el proceso de lectura, toda esta información es almacenada en variables específicas del programa. 
+Las líneas 1, 2, 3, 4 y 5 siempre se encargarán de leer la categoría del método, el número de especies atómicas, la energía G4 a T = 0 K, la entalpía G4 a T = 0 K, el número atómico y el número de átomos, respectivamente. Mientras que las líneas 6, 7, 8 y 9 no siempre ocuparan el mismo lugar, porque éstas, dependen de líneas anteriores.\\
+
+Por ejemplo, para la \textbf{molécula X}, el número de especies atómicas serán tres: Hidrógeno, Carbono y Oxígeno. En consecuencia, la línea 5 se repetirá tres veces para las especies mencionadas. Después, se leerá el tipo de molécula (lineal o no lineal), posteriormente, el modelo de aproximación usada (Nicolaides o Rotor Rígido y Oscilador Armónico), por último, el número de modos de vibración que influirá en las frecuencias vibracionales de la molécula. Al terminar el proceso de lectura, toda esta información es almacenada en variables específicas del programa. 
 
  
 \subsection{Paso 3 del diagrama de flujo general}
 
-Como tercer paso en el diagrama general se encuentra la determinación del método utilizado, que es indispensable para comenzar con los cálculos. Este programa sólo cuenta con un método, el G4 de Gaussian 09. Hecho esto, el programa tiene la certeza de que datos ocupar para las especies atómicas antes leídas. Aunque el programa tiene únicamente el método G4, es posible incorporar otros métodos de Gaussian (véase el apéndice A).
+Como tercer paso en el diagrama general se encuentra la determinación del método utilizado, que es indispensable para comenzar con los cálculos. \textbf{EnthalpyG4} sólo cuenta con un método, el \textbf{G4} de \textbf{Gaussian09} (veáse el apéndice B para obtener información sobre otros métodos de Gaussian09). Hecho esto, el programa tiene la certeza de que datos ocupar para las especies atómicas antes leídas. Aunque el programa tiene únicamente el método \textbf{G4}, es posible incorporar otros métodos de \textbf{Gaussian} (véase el apéndice A).
 
 
 
 \subsection{Paso 4 del diagrama de flujo general}
 
-En este paso se realiza el cálculo de la entalpía de atomización a T = 0 K de la molécula. Aquí se utilizan los valores del método G4 para cada uno de los átomos presentes en la \textbf{molécula X}, la cantidad estequiométrica de estos y la entalpía G4 de la molécula a T = 0 K. Veáse las ecuaciones \ref{eq:5.1} y \ref{eq:5.2}. Para concluir, se realiza una conversión de unidades de energía (hartree a kJ). Obsérvese las ecuaciones \ref{eq:5.4} y \ref{eq:5.5}.
+En este paso se realiza el cálculo de la entalpía de atomización a T = 0 K de la molécula. Aquí se utilizan los valores del método G4 para cada uno de los átomos presentes en la \textbf{molécula X}, la cantidad estequiométrica de estos y la entalpía G4 de la molécula a T = 0 K (veáse las ecuaciones \ref{eq:5.1} y \ref{eq:5.2}). Para concluir, se realiza una conversión de unidades de energía (hartree a kJ). Obsérvese las ecuaciones \ref{eq:5.4} y \ref{eq:5.5}.
 
 \begin{equation}
 \Delta H^{\circleddash}_{a0}(CH_3OH) = \Delta H^{total}_{0K} (C(^{3}P) + 4H(^{2}S) + O(^{3}S))- \Delta E^{total}_{0K} (CH_{3}OH)
@@ -193,7 +202,7 @@ El paso 6 se encarga de cuantificar la diferencia entre las  dos cantidades G4 (
 
 \subsection{Paso 7 del diagrama de flujo general}
 
-En el paso 7 se obtiene el valor de la entalpía de formación a T = 298.15 K (sumando el calor de formación, la diferencia de las dos cantidades G4 y restando los incrementos correspondientes para los elementos de la molécula en sus estados estándar), en consecuencia, son usados los valores obtenidos en los pasos 5 y 6 (veáse las ecuaciones \ref{eq:5.16}, \ref{eq:5.17}, \ref{eq:5.18} y \ref{eq:5.19}. Para terminar, se realiza una conversión de unidades de energía de kJ a kcal (ecuaciones \ref{eq:5.20} y \ref{eq:5.21}).
+En el paso 7 se obtiene el valor de la entalpía de formación a T = 298.15 K (sumando el calor de formación, la diferencia de las dos cantidades G4 y restando los incrementos correspondientes para los elementos de la molécula en sus estados estándar), en consecuencia, son usados los valores obtenidos en los pasos 5 y 6 (veáse las ecuaciones \ref{eq:5.16}, \ref{eq:5.17}, \ref{eq:5.18} y \ref{eq:5.19}). Finalmente, se realiza una conversión de unidades de energía de kJ a kcal (ecuaciones \ref{eq:5.20} y \ref{eq:5.21}).
 
 \begin{multline}
 \Delta H^{\circleddash}_{f298}(CH_3OH) = \Delta H^{\circleddash}_{f0}(CH_{3}OH) + \Delta \Delta H^{\circleddash} (CH_{3}OH) \\ - (\Delta \Delta H^{\circleddash} (C) + 2 \Delta \Delta H^{\circleddash}(H_{2}) + \frac{1}{2} \Delta \Delta H^{\circleddash}(O_{2}))
@@ -330,10 +339,10 @@ Using G4 Enthalpy:
 \end{lstlisting}
 
 \section{Código}
-El lenguaje de programación utilizado para la creación de este programa se conoce como c++. El motivo principal de su uso fue la implementación de una programación orientada a objetos que fragmentó el código en partes independientes, esto, permite reciclar el código para futuros proyectos \cite{cplusplus}. A continuación, se explican las diferentes clases que existen en este programa.
+El lenguaje de programación utilizado para la creación de este programa se conoce como c++. El motivo principal de su uso fue la implementación de una programación orientada a objetos que fragmentó el código en partes independientes, permitiendo así, reciclar el código para futuros proyectos \cite{cplusplus}. A continuación, se explican las diferentes clases que existen en este programa.
 
 \subsection*{Clases}
-A continuación, se enlistan los nombres de las clases utilizadas para este programa:
+Ahora se enlistan los nombres de las clases utilizadas para este programa:
 \begin{itemize}
 	\item Enthalpyinputdata
 	\item Method
@@ -341,7 +350,7 @@ A continuación, se enlistan los nombres de las clases utilizadas para este prog
 \end{itemize}
 
 \subsection*{Clase Enthalpyinputdata}
-Esta clase se encarga de leer los datos (provenientes de Gaussian) del archivo de entrada. Los datos que lee esta clase son:
+Enthalpyinputdata se encarga de leer los datos (provenientes de Gaussian09) del archivo de entrada. Los datos que lee esta clase son:
 \begin{itemize}
 	\item Tipo de método 
 	\item Número de especies atómicas
@@ -353,7 +362,7 @@ Esta clase se encarga de leer los datos (provenientes de Gaussian) del archivo d
 	\item Número de modos de vibración
 	\item Frecuencias vibracionales de la molécula 
 \end{itemize}
-La finalidad de esta clase es determinar la información indispensable para comenzar con el cálculo de la entalpía. 
+La finalidad de esta clase es determinar la información indispensable para comenzar con el cálculo de la entalpía de formación. 
 
 \subsection*{Clase Method}
 La clase Method es utilizada para seleccionar el tipo de método que se realizó en Gaussian, y así, devolver valores específicos para los átomos de Hidrógeno, Carbono, Oxígeno, Nitrógeno, Flúor y Azufre.
@@ -371,7 +380,7 @@ Es fundamental corroborar que el programa funciona de forma correcta, por lo que
 \item 4-nitrobenzaldehído (4NBA)
 \end{itemize}
 
-Los derivados de nitrobenzaladehído son compuestos aromáticos que tienen un gran número de aplicaciones. Entre ellos se encuentran los intermediarios en la preparación de productos químicos de alto valor agregado, pesticidas, materiales ópticos no lineales, productos farmacéuticos, bases de Schiff, etc \cite{Ximello2020}.
+Los derivados de nitrobenzaladehído son compuestos aromáticos que tienen un gran número de aplicaciones. Entre ellos se encuentran los intermediarios en la preparación de productos químicos de alto valor agregado, pesticidas, materiales ópticos no lineales, productos farmacéuticos, bases de Schiff, etcétera \cite{Ximello2020}.
 
 \begin{figure}[hbtp]
 \begin{center}
@@ -381,9 +390,9 @@ Los derivados de nitrobenzaladehído son compuestos aromáticos que tienen un gr
 \end{center}
 \end{figure}
 
-Las entalpías de formación de las moléculas fueron calculadas utilizando la energía G4 a T = 0 K, además, se utilizaron las aproximaciones de Nicolaides, Oscilador Armónico y Rotor Rígido en todas las moléculas \cite{Nicolaides1996,McQuarrie1976}. Para ello, las frecuencias obtenidas fueron a  un nivel teórico B3LYP/6-31G(2df,p) escaladas a 0.9854. Las entalpías átomicas de formación  fueron a T = 0 K y sus correciones térmicas a T = 298.15 K se tomaron de la referencia \cite{NIST1998}, excluyendo el valor del átomo de Carbono, cuyo dato 	 coincide con Tajti y otros \cite{Tajti2004}. Los archivos de salida provienen del software \textbf{\textit{Gaussian09}}, mientras que el archivo que contiene la información necesaria para nuestro programa fue obtenida por el script \textbf{\textit{gendeltahfinputfile}} (proviente del Laboratorio de Fisicoquímica Orgánica Teórica de la BUAP). Los valores de la entalpía de formación a T = 298.15 K calculados por nuestro programa del 2-nitrobenzaldehído (2NBA), 3-nitrobenzaldehído (3NBA) y 4-nitrobenzaldehído (4NBA) se muestran a continuación.
+Las entalpías de formación de las moléculas fueron calculadas utilizando la energía G4 a T = 0 K, así mismo, se utilizaron las aproximaciones de Nicolaides, Oscilador Armónico y Rotor Rígido en todas las moléculas \cite{Nicolaides1996,McQuarrie1976}. Para ello, las frecuencias obtenidas fueron a  un nivel teórico B3LYP/6-31G(2df,p) escaladas a 0.9854. Las entalpías átomicas de formación  fueron a T = 0 K y sus correciones térmicas a T = 298.15 K se tomaron de la referencia \cite{NIST1998}, excluyendo el valor del átomo de Carbono, cuyo dato 	 coincide con Tajti y otros \cite{Tajti2004}. Los archivos de salida proceden del software \textbf{\textit{Gaussian09}}, mientras que el archivo que contiene la información necesaria para nuestro programa fue obtenida por el script \textbf{\textit{gendeltahfinputfile}} (proviente del \textbf{Laboratorio de Fisicoquímica Orgánica Teórica de la BUAP}). Los valores de la entalpía de formación a T = 298.15 K calculados por nuestro programa del 2-nitrobenzaldehído (2NBA), 3-nitrobenzaldehído (3NBA) y 4-nitrobenzaldehído (4NBA) se muestran a continuación.
 
-\subsection{Conjunto de pruebas: 2NBA}
+\subsection{Conjunto de pruebas: 2NBA, 3NBA y 4NBA}
 
 Es posible apreciar la entalpía de formación a T = 298.15 K de las 4 simulaciones realizadas en la línea 22, respectivamente. Todos los resultados coinciden con los valores de las moléculas de 2NBA, 3NBA y 4NBA reportados por Ximello y otros \cite{Ximello2020}, véase la tabla \ref{Ximello-table}.  
 
@@ -443,8 +452,6 @@ Using G4 Enthalpy:
 =============================================================
 \end{lstlisting}
 
-\subsection{Conjunto de pruebas: 3NBA}
-
 %3NBALb-2.txt
 \begin{lstlisting}
 ./computeEnthalpyTajti.x 3NBALb-2.txt
@@ -501,8 +508,6 @@ Using G4 Enthalpy:
 =============================================================
 \end{lstlisting}
 
-\subsection{Conjunto de pruebas: 4NBA}
-
 %4NBALa-2.txt
 \begin{lstlisting}
 ./computeEnthalpyTajti.x 4NBALa-2.txt
@@ -552,7 +557,7 @@ Label & $\Delta_{f}H_{m}^{\circ}(298.15 K) kJ \cdot mol^{-1}$ \\
 \label{Ximello-table}
 \end{table}
 
-Las 4 pruebas preliminares también se realizaron con el fin de reconocer posibles errores en los resultados durante la ejecución del programa. No obstante, lo anterior sirve para confirmar que las comparación con Ximello y otros \cite{Ximello2020} arroja datos con un alto nivel de precisión. Por esta razón, podemos ratificar la utilidad de nuestro programa para realizar cálculos que requieran un alto nivel de confiabilidad en los resultados teóricos.
+Las 4 pruebas preliminares también se realizaron con el fin de reconocer posibles errores en los resultados durante la ejecución del programa. No obstante, lo anterior sirve para confirmar que las comparación con Ximello y otros \cite{Ximello2020} arroja datos con un alto nivel de precisión. Por esta razón, podemos ratificar la utilidad de nuestro programa para realizar cálculos que requieran un alto nivel de confiabilidad en los resultados teóricos. 
 
 
 

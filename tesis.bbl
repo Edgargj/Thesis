@@ -1,28 +1,14 @@
-\begin{thebibliography}{1}
-
-\bibitem{McQuarrie1976}
-McQuarrie,
-\newblock {\em Statistical Mechanics},
-\newblock Harper and Row, 1976.
-
-\bibitem{Simmie2015}
-Simmie J.~M. y Somers K.~P.,
-\newblock {\em The Journal of Physical Chemistry A} {\bf 119}, 7235 (2015),
-\newblock PMID: 25580800.
-
-\bibitem{Nicolaides1996}
-Nicolaides A., Rauk A., Glukhovtsev M.~N., y Radom L.,
-\newblock {\em The Journal of Physical Chemistry} {\bf 100}, 17460 (1996).
-
-\bibitem{cplusplus}
-Allain A.,
-\newblock {\em Jumping into C++},
-\newblock 2015.
+\begin{thebibliography}{10}
 
 \bibitem{Ximello2020}
 Ximello A., Ramos F., Rojas A., Hernández-Pérez J.~M., Camarillo E.~A.,
   Solano-Altamirano J.~M., Sandoval-Lira J., y Flores H.,
 \newblock {\em Journal of Chemical \& Engineering Data} {\bf 65}, 4935 (2020).
+
+\bibitem{Cuevas2003}
+G.~Cuevas F.~C.,
+\newblock {\em Introducción a la química computacional},
+\newblock Fondo de Cultura Económica, 2003.
 
 \bibitem{NIST1998}
 Chase M.,
@@ -33,5 +19,34 @@ Chase M.,
 Tajti A., Szalay P.~G., Császár A.~G., Kállay M., Gauss J., Valeev E.~F.,
   Flowers B.~A., Vázquez J., y Stanton J.~F.,
 \newblock {\em The Journal of Chemical Physics} {\bf 121}, 11599 (2004).
+
+\bibitem{Lewars2016}
+Lewars E.~G.,
+\newblock {\em Computational Chemistry: Introduction to the Theory and
+  Applications of Molecular and Quantum Mechanics},
+\newblock Springer Netherlands, 2016.
+
+\bibitem{McQuarrie1976}
+McQuarrie,
+\newblock {\em Statistical Mechanics},
+\newblock Harper and Row, 1976.
+
+\bibitem{Nicolaides1996}
+Nicolaides A., Rauk A., Glukhovtsev M.~N., y Radom L.,
+\newblock {\em The Journal of Physical Chemistry} {\bf 100}, 17460 (1996).
+
+\bibitem{Simmie2015}
+Simmie J.~M. y Somers K.~P.,
+\newblock {\em The Journal of Physical Chemistry A} {\bf 119}, 7235 (2015),
+\newblock PMID: 25580800.
+
+\bibitem{Curtiss2007}
+Curtiss L.~A., Redfern P.~C., y Raghavachari K.,
+\newblock {\em J. Chem. Phys.} {\bf 126}, 084108 (2007).
+
+\bibitem{cplusplus}
+Allain A.,
+\newblock {\em Jumping into C++},
+\newblock 2015.
 
 \end{thebibliography}
