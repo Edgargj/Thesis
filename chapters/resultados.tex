@@ -2,7 +2,7 @@
 
 La esencia de esta tesis fue la creación de un programa de cómputo científico llamando \textbf{EnthalpyG4}, que calcula entalpías de formación de compuestos orgánicos a T = 298.15 K partiendo de archivos de salida de \textbf{Gaussian09}. En consecuencia, es necesaria una explicación detallada de todo esto. Por lo que he dividido esta descripción en dos secciones; el algoritmo y su uso para la obtención de resultados. \\
 
-Es importante mencionar que \textbf{EnthalpyG4} fue inspirado por un programa de cómputo científico que también calcula entalpías de formación de compuestos orgánicos, el lenguaje de programación usado fue \textbf{FORTRAN} en su versión 90. Dicho programa fue creado por el coasesor de esta tesis, \textbf{Dr. Julio Manuel Pérez Hernández}.
+Es importante mencionar que \textbf{EnthalpyG4} fue inspirado por un programa de cómputo científico que también calcula entalpías de formación de compuestos orgánicos, el lenguaje de programación usado fue \textbf{FORTRAN} en su versión 90. Dicho programa fue creado a inicios del año 2000 por el coasesor de esta tesis, \textbf{Dr. Julio Manuel Pérez Hernández}.
 
 
 
@@ -245,7 +245,7 @@ Los pasos 8 y 9 son de los más importantes del programa, porque calculan la ene
 	\item Si es lineal o no lo es.
 \end{enumerate}
 
-El tipo de aproximación usada solo puede tener dos valores, 0 y 1. Sí el archivo de entrada de la molécula muestra un valor de 0 significa que será usada la aproximación de Nicolaides \cite{Nicolaides1996} (no tomara en cuenta las frecuencias vibraciones de la molécula menores a 260 $cm^{-1}$ y devolverá $\frac{1}{2}$ de $RT$ para la contribución vibracional por cada frecuencia que sea menor a 260 $cm^{-1}$). Y sí el valor es 1, la aproximación del rotor rigido y el oscilador armónico \cite{McQuarrie1976} sera usada para los cálculos. 
+El tipo de aproximación usada solo puede tener dos valores, 0 y 1. Sí el archivo de entrada de la molécula muestra un valor de 0 significa que será usada la aproximación de Nicolaides y otros \cite{Nicolaides1996} (no tomara en cuenta las frecuencias vibraciones de la molécula menores a 260 $cm^{-1}$ y devolverá $\frac{1}{2}$ de $RT$ para la contribución vibracional por cada frecuencia que sea menor a 260 $cm^{-1}$). Y sí el valor es 1, la aproximación del rotor rigido y el oscilador armónico \cite{McQuarrie1976} sera usada para los cálculos. 
 
 También existen dos posibles valores en el archivo de entrada para el parámetro de la linealidad de la molécula. Un valor de 1 devolverá un RT en la contribución rotacional, en cambio, sí el valor es 0, el condicional retornará un $\frac{3}{2}$ de $RT$ en la contribución rotacional.
 
@@ -390,7 +390,7 @@ Los derivados de nitrobenzaladehído son compuestos aromáticos que tienen un gr
 \end{center}
 \end{figure}
 
-Las entalpías de formación de las moléculas fueron calculadas utilizando la energía G4 a T = 0 K, así mismo, se utilizaron las aproximaciones de Nicolaides, Oscilador Armónico y Rotor Rígido en todas las moléculas \cite{Nicolaides1996,McQuarrie1976}. Para ello, las frecuencias obtenidas fueron a  un nivel teórico B3LYP/6-31G(2df,p) escaladas a 0.9854. Las entalpías átomicas de formación  fueron a T = 0 K y sus correciones térmicas a T = 298.15 K se tomaron de la referencia \cite{NIST1998}, excluyendo el valor del átomo de Carbono, cuyo dato 	 coincide con Tajti y otros \cite{Tajti2004}. Los archivos de salida proceden del software \textbf{\textit{Gaussian09}}, mientras que el archivo que contiene la información necesaria para nuestro programa fue obtenida por el script \textbf{\textit{gendeltahfinputfile}} (proviente del \textbf{Laboratorio de Fisicoquímica Orgánica Teórica de la BUAP}). Los valores de la entalpía de formación a T = 298.15 K calculados por nuestro programa del 2-nitrobenzaldehído (2NBA), 3-nitrobenzaldehído (3NBA) y 4-nitrobenzaldehído (4NBA) se muestran a continuación.
+Las entalpías de formación de las moléculas fueron calculadas utilizando la energía G4 a T = 0 K, así mismo, se utilizaron las aproximaciones de Nicolaides y otros, Oscilador Armónico y Rotor Rígido en todas las moléculas \cite{Nicolaides1996,McQuarrie1976}. Para ello, las frecuencias obtenidas fueron a  un nivel teórico B3LYP/6-31G(2df,p) escaladas a 0.9854. Las entalpías átomicas de formación  fueron a T = 0 K y sus correciones térmicas a T = 298.15 K se tomaron de la referencia \cite{NIST1998}, excluyendo el valor del átomo de Carbono, cuyo dato 	 coincide con Tajti y otros \cite{Tajti2004}. Los archivos de salida proceden del software \textbf{\textit{Gaussian09}}, mientras que el archivo que contiene la información necesaria para nuestro programa fue obtenida por el script \textbf{\textit{gendeltahfinputfile}} (proviente del \textbf{Laboratorio de Fisicoquímica Orgánica Teórica de la BUAP}). Los valores de la entalpía de formación a T = 298.15 K calculados por nuestro programa del 2-nitrobenzaldehído (2NBA), 3-nitrobenzaldehído (3NBA) y 4-nitrobenzaldehído (4NBA) se muestran a continuación.
 
 \subsection{Conjunto de pruebas: 2NBA, 3NBA y 4NBA}
 
