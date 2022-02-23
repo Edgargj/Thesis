@@ -1,15 +1,15 @@
 \chapter{Funcionamiento del programa}
 
 
-Para comenzar con el uso del programa \textbf{EnthalpyG4} es necesario compilar el código. La herramienta de \textbf{Linux} que genera el ejecutable y otros archivos fuente y no fuente se conoce como \textbf{make}. Una vez hecho esto, se produce el ejecutable.
+Para comenzar con el uso de los programas es necesario compilar el código. La herramienta de \textbf{Linux} que genera el ejecutable y otros archivos fuente y no fuente se conoce como \textbf{make}. Una vez hecho esto, se produce el ejecutable.
 \begin{lstlisting}
-$computeEnthalpyG4.x$
+$computeEnthalpyNIST.x$
 \end{lstlisting}
 
-El funcionamiento adecuado de \textbf{EnthalpyG4} se muestra a continuación.
+El funcionamiento adecuado de \textbf{EnthalpyNIST} se muestra a continuación.
 
 \begin{lstlisting}
-$./computeEnthalpyG4.x  CH3OH-G4.txt$
+$./computeEnthalpyNIST.x  CH3OH-G4.txt$
 
 =============================================================
      New calculation of molecular enthalpies of formation
@@ -36,7 +36,7 @@ Using G4:
 
 Al correr el programa sin un archivo de lectura se visualizará la siguiente información:
 \begin{lstlisting}
-$./computeEnthalpyG4.x$ 
+$./computeEnthalpyNIST.x$ 
 terminate called after throwing an instance of std::logic_error
 what():  basic_string::_M_construct null not valid
 Abortado (core generado)
@@ -55,11 +55,11 @@ Para evitar una ejecución del programa de manera indefinida, es oportuno incorp
 \subsection*{Banderas de entrada}
  Incorporar banderas de entrada al código del programa permitirá tener distintas opciones en el cálculo de la entalpía de formación.  Las opciones son necesarias porque calcularían el valor de la entalpía de formación por distintos métodos y valores. Éstas, podrían ser mostradas al usar la bandera “-h”. Las banderas pueden ser utilizadas de la siguiente manera:
 \begin{lstlisting}
-$./computeEnthalpyG4.x -h$
+$./computeEnthalpyNIST.x -h$
 \end{lstlisting}
 Por lo tanto, la nomeclatura del programa sería:
 \begin{lstlisting}
-$./computeEnthalpyG4.x -flag  molecule.txt/.dat$
+$./computeEnthalpyNIST.x -flag  molecule.txt/.dat$
 \end{lstlisting}
 Dónde \textbf{molecule.txt o molecule.dat} es el archivo de entrada y \textbf{-flag} es la bandera de entrada que contiene las diferentes opciones para modificar el cálculo. Las banderas pueden ser las siguientes:
 \begin{lstlisting}
@@ -81,9 +81,9 @@ Muestra un menú de ayuda para el manejo del programa.
 
 \chapter{Programas adicionales}
 
-Además del programa \textbf{EnthalpyG4}, se crearon 3 programas que permiten determinar la entalpía de formación por distintos métodos al G4 de \textbf{Guassian09} con diferentes valores reportados en la literatura científica \cite{Simmie2015,NIST1998,Tajti2004}. Sus usos e interfaces son semejantes a \textbf{EnthalpyG4}, por consiguiente, existe la posibilidad de incorporar nuevos métodos a dichos programas. Los siguientes hipervínculos contienen por separado, los 4 repositorios de los programas creados en este trabajo.
+Además del programa \textbf{EnthalpyNIST}, se crearon 2 programas que permiten determinar la entalpía de formación por distintos métodos al G4 de \textbf{Guassian09} con diferentes valores reportados en la literatura científica \cite{Simmie2015,NIST1998,Tajti2004}. Sus usos e interfaces son semejantes a \textbf{EnthalpyNIST}, por consiguiente, existe la posibilidad de incorporar nuevos métodos a dichos programas. Los siguientes hipervínculos contienen por separado, los 4 repositorios de los programas creados en este trabajo.
 
-\url{https://github.com/Edgargj/EnthalpyG4} \\
+
 \url{https://github.com/Edgargj/EnthalpyNIST} \\
 \url{https://github.com/Edgargj/EnthalpyTajti} \\
 \url{https://github.com/Edgargj/EnthalpyArgonne} \\
