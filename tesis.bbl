@@ -26,15 +26,6 @@ Lewars E.~G.,
   Applications of Molecular and Quantum Mechanics},
 \newblock Springer Netherlands, 2016.
 
-\bibitem{McQuarrie1976}
-McQuarrie,
-\newblock {\em Statistical Mechanics},
-\newblock Harper and Row, 1976.
-
-\bibitem{Nicolaides1996}
-Nicolaides A., Rauk A., Glukhovtsev M.~N., y Radom L.,
-\newblock {\em The Journal of Physical Chemistry} {\bf 100}, 17460 (1996).
-
 \bibitem{Simmie2015}
 Simmie J.~M. y Somers K.~P.,
 \newblock {\em The Journal of Physical Chemistry A} {\bf 119}, 7235 (2015),
@@ -43,6 +34,30 @@ Simmie J.~M. y Somers K.~P.,
 \bibitem{Curtiss2007}
 Curtiss L.~A., Redfern P.~C., y Raghavachari K.,
 \newblock {\em J. Chem. Phys.} {\bf 126}, 084108 (2007).
+
+\bibitem{Nicolaides1996}
+Nicolaides A., Rauk A., Glukhovtsev M.~N., y Radom L.,
+\newblock {\em The Journal of Physical Chemistry} {\bf 100}, 17460 (1996).
+
+\bibitem{McQuarrie1976}
+McQuarrie,
+\newblock {\em Statistical Mechanics},
+\newblock Harper and Row, 1976.
+
+\bibitem{Chang2000}
+Chang R.,
+\newblock {\em Fisicoquímica para las ciencias químicas y biológicas},
+\newblock McGraw-Hill Interamericana, 2000.
+
+\bibitem{Brown2014}
+Brown T.~L.,
+\newblock {\em Química, la ciencia central},
+\newblock Pearson Educación de México, 2014.
+
+\bibitem{Garritz2005}
+Garritz~Ruiz L. y. M.~V., A. G.~S,
+\newblock {\em Química universitaria},
+\newblock Pearson Educación de México, 2005.
 
 \bibitem{cplusplus}
 Allain A.,
