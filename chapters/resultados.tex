@@ -29,7 +29,7 @@ La entalpía de formación fue calculada a partir del método de atomización \c
 \end{center}
 \end{figure}
 
-\subsection {Paso 1 del diagrama de flujo general}
+\subsection {Inicio}
 
 El programa comienza con el uso de un archivo de entrada que contiene la información necesaria de la molécula para iniciar con la lectura de los datos. Para la \textbf{molécula X}, el archivo de entrada tendrá la siguiente forma:
 \begin{lstlisting}
@@ -59,7 +59,7 @@ G4
 
 
 
-\subsection{Paso 2 del diagrama de flujo general}
+\subsection{Paso 1 del diagrama de flujo general}
 
 Ahora, se leerá el archivo de entrada de la siguiente forma:
 
@@ -81,13 +81,13 @@ Las líneas 1, 2, 3, 4 y 5 siempre se encargarán de leer la categoría del mét
 Por ejemplo, para la \textbf{molécula X}, el número de especies atómicas serán tres: Hidrógeno, Carbono y Oxígeno. En consecuencia, la línea 5 se repetirá tres veces para las especies mencionadas. Después, se leerá el tipo de molécula (lineal o no lineal), posteriormente, el modelo de aproximación usada (Nicolaides o Rotor Rígido y Oscilador Armónico), por último, el número de modos de vibración que influirá en las frecuencias vibracionales de la molécula. Al terminar el proceso de lectura, toda esta información es almacenada en variables específicas del programa. 
 
  
-\subsection{Paso 3 del diagrama de flujo general}
+\subsection{Paso 2 del diagrama de flujo general}
 
 Como tercer paso en el diagrama general se encuentra la determinación del método utilizado, que es indispensable para comenzar con los cálculos. \textbf{EnthalpyNIST} (uno de los 3 programas creados) cuenta con varios métodos de Gaussian, pero en nuestra explicación utilizaremos sólo el método \textbf{G4 de Gaussian09} (veáse el apéndice B para obtener información sobre otros métodos de Gaussian). Hecho esto, el programa tiene la certeza de que datos ocupar para las especies atómicas antes leídas.
 
 
 
-\subsection{Paso 4 del diagrama de flujo general}
+\subsection{Paso 3 del diagrama de flujo general}
 
 En este paso se realiza el cálculo de la entalpía de atomización a T = 0 K de la molécula. Aquí se utilizan los valores del método G4 para cada uno de los átomos presentes en la \textbf{molécula X}, la cantidad estequiométrica de estos y la entalpía G4 de la molécula a T = 0 K (veáse las ecuaciones \ref{eq:5.1} y \ref{eq:5.2}). Para concluir, se realiza una conversión de unidades de energía (hartree a kJ). Obsérvese las ecuaciones \ref{eq:5.4} y \ref{eq:5.5}.
 
@@ -115,7 +115,7 @@ En este paso se realiza el cálculo de la entalpía de atomización a T = 0 K de
 \label{eq:5.5}
 \end{equation}
  
-\subsection{Paso 5 del diagrama de flujo general}
+\subsection{Paso 4 del diagrama de flujo general}
 
 Hecho lo anterior, se realiza el cálculo de la entalpía de formación a T = 0 K de la molécula. Nuevamente, se utilizan valores experimentales para cada uno de los átomos presentes en la molécula junto con su cantidad especifica y el valor de la entalpía de atomización a T = 0 K obtenido anteriormente (ecuaciones \ref{eq:5.6} y \ref{eq:5.7}). Al valor obtenido en este paso se le conoce como \textbf{calor de formación} (ecuación \ref{eq:5.9}). Por último, se realiza una conversión de unidades de energía (kJ a kcal), ver las ecuaciones \ref{eq:5.10} y \ref{eq:5.11}. 
 
@@ -149,9 +149,9 @@ Hecho lo anterior, se realiza el cálculo de la entalpía de formación a T = 0 
 \end{equation}
 
 
-\subsection{Paso 6 del diagrama de flujo general}
+\subsection{Paso 5 del diagrama de flujo general}
 
-El paso 6 se encarga de cuantificar la diferencia entre las  dos cantidades G4 (T = 0 K y T = 298.15 K) leídas en el paso 1 (ecuación \ref{eq:5.13}). Además, se realiza una conversión de unidades de energía (hartree a kJ), ecuaciones \ref{eq:5.14} y \ref{eq:5.15}.
+El paso 5 se encarga de cuantificar la diferencia entre las  dos cantidades G4 (T = 0 K y T = 298.15 K) leídas en el paso 1 (ecuación \ref{eq:5.13}). Además, se realiza una conversión de unidades de energía (hartree a kJ), ecuaciones \ref{eq:5.14} y \ref{eq:5.15}.
 
 \begin{equation}
 	\Delta \Delta H^{\circleddash}(CH_3OH) = G4 \textrm{Entalpia} - G4 \:(0 K)
@@ -174,9 +174,9 @@ El paso 6 se encarga de cuantificar la diferencia entre las  dos cantidades G4 (
 \end{equation}
 
 
-\subsection{Paso 7 del diagrama de flujo general}
+\subsection{Paso 6 del diagrama de flujo general}
 
-En el paso 7 se obtiene el valor de la entalpía de formación a T = 298.15 K (sumando el calor de formación, la diferencia de las dos cantidades G4 y restando los incrementos correspondientes para los elementos de la molécula en sus estados estándar), en consecuencia, son usados los valores obtenidos en los pasos 5 y 6 (veáse las ecuaciones \ref{eq:5.16}, \ref{eq:5.17}, \ref{eq:5.18} y \ref{eq:5.19}). Finalmente, se realiza una conversión de unidades de energía de kJ a kcal (ecuaciones \ref{eq:5.20} y \ref{eq:5.21}).
+En el paso 6 se obtiene el valor de la entalpía de formación a T = 298.15 K (sumando el calor de formación, la diferencia de las dos cantidades G4 y restando los incrementos correspondientes para los elementos de la molécula en sus estados estándar), en consecuencia, son usados los valores obtenidos en los pasos 4 y 5 (veáse las ecuaciones \ref{eq:5.16}, \ref{eq:5.17}, \ref{eq:5.18} y \ref{eq:5.19}). Finalmente, se realiza una conversión de unidades de energía de kJ a kcal (ecuaciones \ref{eq:5.20} y \ref{eq:5.21}).
 
 \begin{multline}
 \Delta H^{\circleddash}_{f298}(CH_3OH) = \Delta H^{\circleddash}_{f0}(CH_{3}OH) + \Delta \Delta H^{\circleddash} (CH_{3}OH) \\ - (\Delta \Delta H^{\circleddash} (C) + 2 \Delta \Delta H^{\circleddash}(H_{2}) + \frac{1}{2} \Delta \Delta H^{\circleddash}(O_{2}))
@@ -209,9 +209,9 @@ En el paso 7 se obtiene el valor de la entalpía de formación a T = 298.15 K (s
 \end{equation}
 
 
-\subsection{Paso 8 y 9 del diagrama de flujo general}
+\subsection{Paso 7, 8 y 9 del diagrama de flujo general}
 
-Los pasos 8 y 9 son de los más importantes del programa, porque calculan la energía interna (paso 6) usando ecuaciones que provienen de la Termodinámica Estadística. Se inicia con dos sentencias de condición que evalúan parámetros de la molécula, como son:
+Los pasos 7 y 8 son de los más importantes del programa, porque calculan la energía interna (paso 6) usando ecuaciones que provienen de la Termodinámica Estadística. Se inicia con dos sentencias de condición que evalúan parámetros de la molécula, como son:
 \begin{enumerate}
 	\item Qué tipo de modelo de aproximación usar.
 	\item El número de modos de vibración.
@@ -264,7 +264,7 @@ Para la \textbf{molécula X} el número de modos de vibración será 12 (es una 
 
 \subsection{Paso 10 del diagrama de flujo general}
 
-El paso 10 simplemente remplaza el valor obtenido anteriormente (energía interna), por el valor calculado en el paso 6 en la determinación de la entalpía de formación a T = 298.15 K, es decir, en el paso 7. Para terminar, se hace una conversión de unidades de energía (kJ a kcal).
+El paso 9 simplemente remplaza el valor obtenido anteriormente (energía interna), por el valor calculado en el paso 5 en la determinación de la entalpía de formación a T = 298.15 K, es decir, en el paso 6. Para terminar, se hace una conversión de unidades de energía (kJ a kcal).
 
 
 \begin{equation}
