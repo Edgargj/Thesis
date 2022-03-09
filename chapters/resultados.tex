@@ -4,10 +4,6 @@ La esencia de esta tesis fue la creación de un conjunto de programas de cómput
 
 Es importante mencionar que los programas creados fueron inspirados por un programa de cómputo científico que también calcula entalpías de formación de compuestos orgánicos, el lenguaje de programación usado fue \textbf{FORTRAN} en su versión 90. Dicho programa fue creado a inicios del año 2000 por el coasesor de esta tesis, \textbf{Dr. Julio Manuel Pérez Hernández}.
 
-
-
-
-
 \section{Algoritmo (diseño del programa)}
 La entalpía de formación fue calculada a partir del método de atomización \cite{Lewars2016} y varias correcciones térmicas de la energía interna \cite{Nicolaides1996}. La Termodinámica Estadística nos permitió separar la función de partición en un producto de los componentes traslacionales, rotacionales, vibracionales, electrónicas y nucleares, con la finalidad de obtener la función de estado de nuestro interés \cite{McQuarrie1976}. Todo ello, culminó en la creación de varios programas de cómputo que automatizan el cálculo de entalpías de formación. Además, se produjo una versión cuya arquitectura de software permitirá en un futuro, añadir métodos diferentes de una manera rápida \cite{Curtiss2007, Simmie2015}. El procedimiento general se observa en el siguiente diagrama de flujo (véase la figura \ref{diagrama-flujo}). A continuación, se explica a detalle cada uno de los pasos del diagrama de flujo general junto con un ejemplo. Para esto, se eligió al metanol (figura \ref{metanol}), que llamaremos desde ahora como \textbf{molécula X} ( Mol.X ).
 
@@ -23,8 +19,8 @@ La entalpía de formación fue calculada a partir del método de atomización \c
 
 \begin{figure}[hbtp]
 \begin{center}
-\includegraphics[scale=1]{graphs/methanol.png}
-\caption{Molécula de metanol, utilizada para explicar el diagrama de flujo general del programa EnthalpyNIST.}
+\includegraphics[scale=0.1]{graphs/metanol.png}
+\caption{Molécula de metanol, utilizada para explicar el diagrama de flujo general.}
 \label{metanol}
 \end{center}
 \end{figure}
@@ -228,7 +224,7 @@ Después, inicia una estructura de control que se repetirá el mismo número de 
 
 La iteración usa las ecuaciones \ref{eq:5.22}, \ref{eq:5.23} y \ref{eq:5.24} que provienen de la Termodinámica Estadística \cite{McQuarrie1976}, para determinar a la energía interna como una suma de las contribuciones vibracionales, rotacionales, traslacionales y electrónicas (ecuación \ref{eq:5.26}), donde \textit{\textbf{R}} es la constante de los gases, \textit{\textbf{T}} es la temperatura en Kelvin, \textit{\textbf{h}} es la constante de Planck, $v_i$ es el número de onda n-ésimo de la molécula, \textit{\textbf{k}} es la constante de Boltzmann y \textit{\textbf{e}} es el número de Euler.  
 
- La contribución traslacional siempre tendr\'a el valor de $\frac{3}{2} RT$ para cualquier mol\'ecula (ecuación \ref{eq:5.24}). Además, se agrega un RT adicional a la energía interna para convertir la energía en entalpía (el llamado término PV, ecuación \ref{eq:5.25}). Cabe aclarar, que el valor obtenido en la primera iteración es acumulativo para los subsecuentes. Concluida la determinación, se devuelve la suma total de la energía interna.
+La contribuci\'{o}n traslacional siempre tendr\'{a} el valor de $\frac{3}{2} RT$ para cualquier mol\'{e}cula (ecuación \ref{eq:5.24}). Adem\'{a}s, se agrega un RT adicional a la energ\'{i}a interna para convertir la energía en entalpía (el llamado término PV, ecuación \ref{eq:5.25}). Cabe aclarar, que el valor obtenido en la primera iteración es acumulativo para los subsecuentes. Concluida la determinación, se devuelve la suma total de la energía interna.
 
 \begin{equation}
 [H(T)-H(0)]_{vib}=RT \sum_i \left(\frac{h\nu_i}{kT}\right)\left(\frac{e^{\frac{-h\nu_i}{kT}}}{1-e^{\frac{-h\nu_i}{kT}}}\right)
