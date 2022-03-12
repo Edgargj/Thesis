@@ -5,7 +5,7 @@ La esencia de esta tesis fue la creación de un conjunto de programas de cómput
 Es importante mencionar que los programas creados fueron inspirados por un programa de cómputo científico que también calcula entalpías de formación de compuestos orgánicos, el lenguaje de programación usado fue \textbf{FORTRAN} en su versión 90. Dicho programa fue creado a inicios del año 2000 por el coasesor de esta tesis, \textbf{Dr. Julio Manuel Pérez Hernández}.
 
 \section{Algoritmo (diseño del programa)}
-La entalpía de formación fue calculada a partir del método de atomización \cite{Lewars2016} y varias correcciones térmicas de la energía interna \cite{Nicolaides1996}. La Termodinámica Estadística nos permitió separar la función de partición en un producto de los componentes traslacionales, rotacionales, vibracionales, electrónicas y nucleares, con la finalidad de obtener la función de estado de nuestro interés \cite{McQuarrie1976}. Todo ello, culminó en la creación de varios programas de cómputo que automatizan el cálculo de entalpías de formación. Además, se produjo una versión cuya arquitectura de software permitirá en un futuro, añadir métodos diferentes de una manera rápida \cite{Curtiss2007, Simmie2015}. El procedimiento general se observa en el siguiente diagrama de flujo (véase la figura \ref{diagrama-flujo}). A continuación, se explica a detalle cada uno de los pasos del diagrama de flujo general junto con un ejemplo. Para esto, se eligió al metanol (figura \ref{metanol}), que llamaremos desde ahora como \textbf{molécula X} ( Mol.X ).
+La entalpía de formación fue calculada a partir del método de atomización \cite{Lewars2016} y varias correcciones térmicas de la energía interna \cite{Nicolaides1996}. La Termodinámica Estadística nos permitió separar la función de partición en un producto de los componentes traslacionales, rotacionales, vibracionales, electrónicas y nucleares, con la finalidad de obtener la función de estado de nuestro interés \cite{McQuarrie1976}. Todo ello, culminó en la creación de varios programas de cómputo que automatizan el cálculo de entalpías de formación. Además, se produjeron versiones cuya arquitectura de software permitirá en un futuro, añadir diferentes métodos de una manera rápida \cite{Curtiss2007, Simmie2015}. El procedimiento general se observa en el siguiente diagrama de flujo (véase la figura \ref{diagrama-flujo}). A continuación, se explica a detalle cada uno de los pasos del diagrama de flujo general junto con un ejemplo. Para esto, se eligió al metanol (figura \ref{metanol}), que llamaremos desde ahora como \textbf{molécula X} ( Mol.X ).
 
 
 \begin{figure}[hbtp]
@@ -314,27 +314,27 @@ El lenguaje de programación utilizado para la creación de estos programas se c
 \subsection*{Clases}
 Ahora, se enlistan los nombres de las clases utilizadas para estos programas:
 \begin{itemize}
-	\item Enthalpyinputdata
-	\item Method
-	\item EnthalpyG4
-	\item EnthalpyG3
-	\item EnthalpyG3MP2
-	\item EnthalpyCBS-APNO
-	\item EnthalpyCBS-QB3
+	\item Enthalpyinputdata.
+	\item Method.
+	\item EnthalpyG4.
+	\item EnthalpyG3.
+	\item EnthalpyG3MP2.
+	\item EnthalpyCBS-APNO.
+	\item EnthalpyCBS-QB3.
 \end{itemize}
 
 \subsection*{Clase Enthalpyinputdata}
 Enthalpyinputdata se encarga de leer los datos (provenientes de Gaussian) del archivo de entrada. Los datos que lee esta clase son:
 \begin{itemize}
-	\item Tipo de método 
-	\item Número de especies atómicas
-	\item Energía G4 a 0 K
-	\item Entalpía G4 a 0 K
-	\item Número atómico y número de átomos 
-	\item Tipo de molécula (lineal o no lineal)
-	\item Tipo de aproximación usada (Nicolaides o Rotor Rígido y Oscilador Armónico)
-	\item Número de modos de vibración
-	\item Frecuencias vibracionales de la molécula 
+	\item Tipo de método.
+	\item Número de especies atómicas.
+	\item Energía G4 a 0 K.
+	\item Entalpía G4 a 0 K.
+	\item Número atómico y número de átomos .
+	\item Tipo de molécula (lineal o no lineal).
+	\item Tipo de aproximación usada (Nicolaides o Rotor Rígido y Oscilador Armónico).
+	\item Número de modos de vibración.
+	\item Frecuencias vibracionales de la molécula.
 \end{itemize}
 La finalidad de esta clase es determinar la información indispensable para comenzar con el cálculo de la entalpía de formación. 
 
@@ -349,9 +349,9 @@ El trabajo de esta clase y sus variantes (EnthalpyG3, EnthalpyG3MP2, EnthalpyCBS
 Es fundamental corroborar que los programas funcionan de forma correcta, por lo que se realizaron pruebas con moléculas que cuentan con entalpías de formación conocidas y que han sido reportadas en la literatura científica \cite{Ximello2020}. Las moléculas elegidas son isómeros del nitrobenzaladeído (figura \ref{n-NBA}) y son:
 
 \begin{itemize}
-\item 2-nitrobenzaldehído (2NBA)
-\item 3-nitrobenzaldehído (3NBA)
-\item 4-nitrobenzaldehído (4NBA)
+\item 2-nitrobenzaldehído (2NBA).
+\item 3-nitrobenzaldehído (3NBA).
+\item 4-nitrobenzaldehído (4NBA).
 \end{itemize}
 
 Los derivados de nitrobenzaladehído son compuestos aromáticos que tienen un gran número de aplicaciones. Entre ellos se encuentran los intermediarios en la preparación de productos químicos de alto valor agregado, pesticidas, materiales ópticos no lineales, productos farmacéuticos, bases de Schiff, etcétera \cite{Ximello2020}.
