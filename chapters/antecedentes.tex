@@ -139,7 +139,6 @@ Variantes del método G3, tales como G3B3 \cite{Baboul1999} y G3MP2 \cite{Curtis
 
 La clave de estos métodos es el uso de altos niveles de correlación y grandes conjuntos de bases. Esta serie comenzó en 1989 con \textit{Gaussian 1}, G1 \cite{Pople1989}, continuó con G2 (1991) \cite{Curtiss1991}, G3 (1998) \cite{Curtiss1998}, y G4 vio la publicación en 2007 \cite{Curtiss2007}. G1 y G2 están obsoletos. Los métodos Gaussianos de alta precisión más populares en la actualidad son probablemente G4 y G3 y sus variantes más rápidas, pero casi tan precisas, G4(MP2) \cite{Curtiss2007a} y G3(MP2) \cite{Curtiss1999}. El uso continuo de G3 y G3(MP2) con G4 y G4(MP2) puede estar justificado por el deseo de comparar algunos trabajos actuales con resultados de métodos más antiguos. Para G3, la desviación absoluta media del experimento es 1,13 kcal mol$^{-1}$ [4,7 kJ mol$^{-1}$], para G3(MP2) 1,2 – 1,3 kcal mol$^{-1}$ [5,0 – 5,4 kJ mol$^{-1}$], G3(MP2) es 7-8 veces más rápido que G3 \cite{Curtiss1998}. Curtis y otros autores proporcionan los detalles del método G4 \cite{Curtiss2007} y lo compararon con G3 y cierta medida, con G1 y G2. Ellos informaron que ``[…] la desviación absoluta promedio del experimento muestra una mejora significativa de 1,13 kcal/mol [4,7 kJ mol$^{-1}$] (teoría G3) a 0,83 kcal/mol [3,5 kJ mol$^{-1}$] (teoría G4). G4 es de 2 a 3 veces más lento que G3. Para acelerar el método G4, sus pasos MP4 fueron reemplazados por MP2 y MP3 dando como resultado G4(MP2) y G4(MP3) \cite{Curtiss2007a}. Un cálculo G4, utiliza los siguientes pasos:
  
- 
 \begin{enumerate}
 \item Se usa un procedimiento de extrapolación para obtener el límite de Hartree-Fock para incluirlo en el cálculo de la energía total.
 
@@ -161,7 +160,7 @@ La clave de estos métodos es el uso de altos niveles de correlación y grandes 
 Estos siete pasos se utilizan para ensamblar una energía molecular como la suma de varias diferencias de energía y un incremento de energía empírico final (la ``corrección de nivel superior’’) en función del número de electrones apareados y no apareados. Debido a las correcciones de energía empírica en los métodos  gaussianos, no son completamente ab initio, sino algo semiempíricos, excepto cuando estas correcciones se anulan. Esta cancelación ocurre, por ejemplo, al calcular las afinidades de los protones como la diferencia de energía de las especies protonadas y no protonadas. Los métodos gaussianos, y otros no mencionados aquí, así como los métodos CBS son revisados  por Peterson, Feller y Dixon (2012), con énfasis en termoquímica; estos autores reconocen una precisión  química de 4 kJ mol$^{-1}$ [1 kJ mol$^{-1}$] como aceptable \cite{Peterson2012}. \\
 En la tabla \ref{Fattahi-table} se muestra una comparación de los métodos gaussianos y un método CBS, usando 1,4-benzoquinona (p-benzoquinona, $O=C_{6}H_{4}=O$) al calcular la entalpía de formación por el método de atomización. Se debe tener en cuenta que el cálculo G4 tomó nueve veces más tiempo (160/18) que el G4 (MP2) y ambos dieron casi la misma entalpía de formación. 
 
-\begin{table}
+\begin{table}[H]
 \begin{center}
 \begin{tabular}{||l|c|c||}
 \hline 
@@ -213,7 +212,7 @@ De los métodos de tipo gaussiano y CBS, para una alta precisión en moléculas 
 
 \section{Método de atomización} 
 
-En química computacional hay tres enfoques principales que predicen entalpías de formación utilizando la teoria Gn. 
+En química computacional hay tres enfoques principales que predicen entalpías de formación. 
 
 \begin{enumerate}
 \item Método de atomización.
@@ -222,7 +221,7 @@ En química computacional hay tres enfoques principales que predicen entalpías 
 \end{enumerate}
 
  
-De los 3 enfoques anteriores, el método de atomización da mejores resultados, especialmente para moléculas orgánicas y es concenpualmente el más sencillo, porque se basa en la ruptura de enlaces de una molécula para obtener a sus atomos en fase gasesosa\cite{Nicolaides1996}. Veamos el principio del método de atomización con la molécula de metanol. \\
+De los 3 enfoques anteriores, el método de atomización da mejores resultados, especialmente para moléculas orgánicas y es el más sencillo, porque se basa en la ruptura de enlaces de una molécula para obtener a sus atomos en fase gasesosa\cite{Nicolaides1996}. Veamos el principio del método de atomización con la molécula de metanol. \\
 
 El metanol se atomiza (conceptualmente) a T = 0 K en los átomos que lo constituyen, es decir,  carbono, hidrógeno y oxígeno (en sus estados electrónicos fundamentales). Además, los átomos de la molécula en sus estados estándar también son usados para formar dicha molécula. La entalpía de formación del metanol a T = 0 K, $\Delta H^{\circleddash}_{f0}(CH_3OH)$, se obtiene al igualar la energía necesaria para generar los átomos a través del metanol ($ \Delta H^{\circleddash}_{f0}(CH_3OH)$ + $ \Delta H^{\circleddash}_{a0}(CH_3OH)$) a la energía para hacerlo directamente desde sus elementos en sus estados estándar:
 
@@ -236,7 +235,7 @@ El metanol se atomiza (conceptualmente) a T = 0 K en los átomos que lo constitu
 \label{eq:3.14}
 \end{equation}\\
 
-La entalpía de atomización $\Delta H^{\circleddash}_{a0}$ a T = 0 K ab initio del metanol, es la diferencia de entalpía entre los átomos de la molécula y el metanol. Para calcular $\Delta H^{\circleddash}_{f0}$ necesitamos la entalpía a T = 0 K de formación de los átomos de C, H y O y la entalpía de atomización T = 0 K del metanol. Las entalpías de atomización del hidrógeno y el oxígeno se pueden calcular ab initio, pero no de forma fiable y precisa. Para mantener la coherencia, utilizaremos valores experimentales de las tres entalpías de atomización elementales, como se recomienda \cite{Nicolaides1996}. De la ecuación \ref{eq:3.15}, la entalpía de atomización T = 0 K del metanol es simplemente las suma de las entalpías ab initio de los átomos que la constituyen menos la entalpía ab initio corregida por ZPE del metanol:
+La entalpía de atomización $\Delta H^{\circleddash}_{a0}$ a T = 0 K ab initio del metanol, es la diferencia de entalpía entre los átomos de la molécula y el metanol. Para calcular $\Delta H^{\circleddash}_{f0}$ necesitamos la entalpía a T = 0 K de formación de los átomos de C, H y O y la entalpía de atomización T = 0 K del metanol. Las entalpías de atomización del hidrógeno y el oxígeno se pueden calcular por un método \textit{ab initio}, pero no de forma fiable y precisa. Para mantener la coherencia, utilizaremos valores experimentales de las tres entalpías de atomización elementales, como recomiendan Nicolaides y otros autores \cite{Nicolaides1996}. De la ecuación \ref{eq:3.15}, la entalpía de atomización T = 0 K del metanol es simplemente las suma de las entalpías \textit{ab initio} de los átomos que la constituyen menos la entalpía \textit{ab initio} corregida por ZPE del metanol:
 
 \begin{equation}
 \Delta H^{\circleddash}_{a0}(CH_3OH) = \Delta E^{total}_{0K} (C(^{3}P) + 4H(^{2}S) + O(^{3}S)) - \Delta E^{total}_{0K} (CH_3OH)
@@ -246,15 +245,14 @@ La entalpía de atomización $\Delta H^{\circleddash}_{a0}$ a T = 0 K ab initio 
 \begin{figure}[hbtp]
 \begin{center}
 \includegraphics[scale=1]{graphs/atomization-CH3OH.png}
-\caption{Diagrama de entalpía de atomización de metanol. El diagrama no implicar que el metanol necesariamente se encuentre por encima de sus elementos en entalpía.}
+\caption{Diagrama de entalpía de atomización de metanol.}
 \label{atm-metanol}
 \end{center}
 \end{figure}
 
-Los valores experimentales de las entalpías de atomización de los átomos a T = 0 K de $(C(^{3}P) + 4H(^{2}S) + O(^{3}S))$ en kJ $mol^{-1}$ son:
+Los valores experimentales de las entalpías de atomización de los átomos a T = 0 K de $(C(^{3}P) + 4H(^{2}S) + O(^{3}S))$ en kJ $mol^{-1}$ son:\\
 
-
-\begin{table}
+\begin{table}[H]
 \begin{center}
 \begin{tabular}{||c|c||}
 \hline 
@@ -272,12 +270,102 @@ O & 246.8 \\
 \end{center}
 \end{table}
 
-pagina 354 Lewars  (segunda tabla)
+Posteriormente, para calcular $\Delta H^{\circleddash}_{a0}(CH_3OH)$ haremos uso de la ecuación \ref{eq:3.15} que toma el valor de $\Delta E^{total}_{0K}$ para los átomos de  C, H, y O. En lugar del método G2 que fue empleado por Nicolaides otros autores \cite{Nicolaides1996}, usaremos el método G4 de \textit{Gaussian09}. Los valores obtenidos para cada átomo y su respectiva molécula a T = 0 K se muestran en la tabla \ref{G4-table}.\\
 
 
+\begin{table}[H]
+\begin{center}
+\begin{tabular}{||c|c||}
+\hline 
+Átomos  & Entalpías G4 a T = 0 K  (hartrees) \\ 
+\hline 
+C & -37.834168 \\ 
+\hline 
+H & -0.501420 \\ 
+\hline 
+O & -75.045501 \\ 
+\hline 
+CH$_{3}$OH & -115.651767 \\
+\hline
+\end{tabular}
+\caption{Entalpías de formación a T = O K obtenidas por el método G4 de Gaussian09.}
+\label{G4-table}
+\end{center}
+\end{table}
 
-Ahora, para ajustar la entalpía de formación de T = 0 K a T = 298.15 K, sumamos el aumento de entalpía del metanol al pasar de T = 0 K a T = 298.15 K y restamos los aumentos correspondientes de los elementos en sus estados estándar. El valor del metanol es la diferencia de dos cantidades de G4 (298 K y 0 K) proporcionadas en el resumen termoquímico al final del cálculo de G4 implementado en \textit{Gaussian 09}. 
 
+El valor de metanol de -115.651767 h podría llamarse el ``cero absoluto'' de la entalpía del metanol, es decir, la entalpía relativa a la de los núcleos disociados y electrones; esto se muestra al final de cualquier geometría de conjunto gaussiano de un cálculo de optimización/frecuencia (aunque solo para cálculos de muy alta precisión) y es el valor adecuado para determinaciones precisas de la entalpía de atomización. Esta entalpía absoluta se utilizará en el cálculo de la entalpía de formación. De la ecuación \ref{eq:3.15} es posible calcular la energía de atomización de metanol a T = 0 K:
+
+\begin{multline}
+\Delta H^{\circleddash}_{a0}(CH_3OH) = -37.834168 + 4(-0.501420)-75.045501-(-115.651767) h =...\\
+...= 0.766418 \times 2625.5 kJ mol^{-1} = 2012.230459 kJ mol^{-1}
+\label{eq:3.15}
+\end{multline}
+
+De la ecuación \ref{eq:3.14} la entalpía de formación a T = 0 K de metanol es:
+
+\begin{multline}
+\Delta H^{\circleddash}_{f0}(CH_3OH) = 711.2 + 4(216.035) + 246.8 -2012.230459 kJ mol^{-1} = -189.1 kJ mol^{-1}
+\label{eq:3.16}
+\end{multline}\\
+
+Nicolaides y otros autores \cite{Nicolaides1996} reportan el valor a T = 0 K  por el método de atomización como $195.7 kJ mol^{-1}$ y los valores experimentales, $190.7kJ mol^{-1}$ y $189.8 kJ mol^{-1}$, en concordancia con el valor G4 calculado aquí. Cualquier inexactitud en la energía de atomización calculada, se mostrará en la entalpía de formación, y solo un buen método de alta precisión puede mitigar este error de manera confiable. Para ajustar la entalpía de formación de T = 0 K a T = 298.15 K, debemos agregar dicho valor y restar los aumentos correspondientes para los elementos en sus estados estándar. El valor para el metanol es la diferencia de las dos cantidades G4 proporcionadas en el resumen termoquímico al final del cálculo de G4 implementado en Gaussian 09. El aumento de la entalpía del metanol al pasar de T = 0 K a T = 298 K es:
+
+
+\begin{equation}
+\Delta \Delta H^{\circleddash}(CH_3OH) = G4 \textrm{Entalpia} - G4 \:(0 K)
+\label{eq:3.17}
+\end{equation}
+
+\begin{multline}
+\Delta \Delta H^{\circleddash}(CH_3OH) = -115.647489 - (-115.651767)\:h =...\\
+...= (0.004278)(2625.5 kJ mol^{-1}) = 11.23188 kJ mol^{-1}
+\label{eq:3.18}
+\end{multline}
+
+%pagina 355 tercera ecuación
+
+La entalpía experimental para los respectivos elementos también es reportada por Nicolaides y otros autores \cite{Nicolaides1996} en $kJ mol^{-1}$, veáse la tabla \ref{Nicolaides-exp-table}.
+
+\begin{table}[H]
+\begin{center}
+\begin{tabular}{||c|c||}
+\hline 
+Átomos  & Entalpía experimental ($kJ mol^{-1}$) \\ 
+\hline 
+C(grafito) & 1.050 \\ 
+\hline 
+H$_{2}$ & 8.468 \\ 
+\hline 
+O$_{2}$ & 8.680 \\ 
+\hline 
+\end{tabular}
+\caption{Entalpías experimentales de los elementos reportadas \cite{Nicolaides1996}.}
+\label{Nicolaides-exp-table}
+\end{center}
+\end{table}
+
+De estos valores y $\Delta \Delta H^{\circleddash}(CH_3OH)$, se calcula la entalpía a T = 298.15 K del metanol. Ahora, para ajustar la entalpía de formación a un estado estándar, sumamos el aumento de entalpía del metanol al pasar de T = 0 K a T = 298.15 K y restamos los aumentos correspondientes de los elementos en sus estados estándar.
+
+\begin{multline}
+\Delta H^{\circleddash}_{f298}(CH_3OH) = \Delta H^{\circleddash}_{f0}(CH_{3}OH) + \Delta \Delta H^{\circleddash} (CH_{3}OH) \\ - (\Delta \Delta H^{\circleddash} (C) + 2 \Delta \Delta H^{\circleddash}(H_{2}) + \frac{1}{2} \Delta \Delta H^{\circleddash}(O_{2}))
+\label{eq:5.19}
+\end{multline}
+
+\begin{multline}
+\Delta H^{\circleddash}_{f298}(CH_3OH) = -190.1126 + 11.23188  \\ - (1.05100 + 2(8.46700) + \frac{1}{2} (8.67000))\:kJ\cdot mol^{-1}
+\label{eq:5.20}
+\end{multline}
+
+\begin{equation}
+\Delta H^{\circleddash}_{f298}(CH_3OH) = -201.21\:kJ\cdot mol^{-1}
+\label{eq:5.21}
+\end{equation}
+
+El valor experimental a T = 298.15 K aceptado es de 205 $\pm$ 10 $kJmol^{-1}$[200]. Por lo tanto, La cifra calculada está dentro del error experimental esperado.
 
 \begin{comment}
+[200] Afeefy HY, Liebman JF, Stein SE (2009) Neutral thermochemical data. In: Linstrom PJ,Mallard WG (eds) NIST Chemistry WebBook, NIST Standard Reference Database Number
+69, , National Institute of Standards and Technology, Gaithersburg MD, 20899, http://
+webbook.nist.gov, (retrieved July 15, 2009).
 \end{comment}
