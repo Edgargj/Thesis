@@ -10,7 +10,7 @@ Seguramente el concepto de energía sea el más usado, conocido e importante en 
 donde $U_{2}$ y $U_{1}$ son las energías internas del sistema en su estado final e inicial, respectivamente \cite{Chang2008}.
 
 El estudio de la variación de la energía interna en las transformaciones químicas tiene un gran significado para el desarrollo de las bases teóricas de la química.
-Además, la variación de la energía interna, es una magnitud indispensable para los cálculos termodinámicos de las reacciones químicas, porque tiene un gran significado para las investigaciones científicas y en la industria. En el proceso de transformación de una sustancia, la energía interna , se produce como en otros casos, mediante la absorción o desprendimiento de calor y la realización de trabajo. El calor de una reacción química frecuentemente es apreciable; éste, puede ser medido directamente en muchos casos y es precisamente, el objetivo de la \textbf{Termoquímica}, estudiar el calor de las reacciones químicas \cite{Guerasimov1971}.\\
+Además, la variación de la energía interna, es una magnitud indispensable para los cálculos termodinámicos de las reacciones químicas, porque tiene un gran significado para las investigaciones científicas y en la industria. En el proceso de transformación de una sustancia, la energía interna, se produce como en otros casos, mediante la absorción o desprendimiento de calor y la realización de trabajo. El calor de una reacción química frecuentemente es apreciable; éste, puede ser medido directamente en muchos casos y es precisamente, el objetivo de la \textbf{Termoquímica}, estudiar el calor de las reacciones químicas \cite{Guerasimov1971}.\\
 
 
 A la cantidad de energía de un sistema que se encuentra a presión constante se le conoce como \textbf{entalpía (H)} y matematicamente se define como 
@@ -211,23 +211,72 @@ Nos concentraremos en los métodos de tipo gaussiano y CBS, porque estos han sid
 
 De los métodos de tipo gaussiano y CBS, para una alta precisión en moléculas muy pequeñas, CBS-APNO es la elección adecuada, y para moléculas "grandes", la elección recae en CBS-4M con la aceptación de la posibilidad de errores moderadamente grandes. Para moléculas de tamaño intermedio, la mejor elección es probablemente entre G4(MP2) y CBS-QB3. Recordemos que G4(MP2) es mucho más rápido que G4, con poca pérdida de precisión en la mayoría de los casos.
 
-
-
-
 \section{Método de atomización} 
 
-Supongamos que queremos calcular la entalpía de formación de metanol. Ahora veremos un cálculo detallado de la entalpía de formación, primero a 0 K(ΔH -f0 ) y luego el ajuste de esta a 298 K. Después de este cálculo instructivo, un cálculo mucho más corto que da se muestra directamente ΔH-f298. La Figura 5.26 muestra el principio detrás de lo que se ha llamado el método de “atomización” [198]. El metanol se atomiza (conceptualmente) a 0 K en átomos de carbono, hidrógeno y oxígeno, en sus estados electrónicos fundamentales. Los elementos en su normalidad, Los estados no atomizados también se usan para hacer estos átomos y para hacer metanol. La entalpía de formación de metanol a 0 K se deriva de igualar la energía (la entalpía, para ser precisos) necesaria para generar los átomos (en sus estados electrónicos fundamentales) a partir de los elementos a través del metanol (ΔH - f0 ð CH 3 OH Þ þ ΔH a0 ð CH 3 OH Þ) a eso necesarios para hacerlos directamente a partir de los elementos en sus estados normales:
+En química computacional hay tres enfoques principales que predicen entalpías de formación utilizando la teoria Gn. 
 
+\begin{enumerate}
+\item Método de atomización.
+\item Método de formación.
+\item Método de reacción isodésmica.
+\end{enumerate}
 
-ΔH - a0 ð CH 3 OH Þ es la entalpía de atomización ab initio 0 K del metanol, la diferencia de entalpía entre los átomos y el metanol. Hay un par de puntos a tener en cuenta sobre este esquema conceptual. Estamos convirtiendo en átomos de carbono grafito, un material polimérico, por lo que estrictamente hablando, la figura 5.26 debería mostrar n C ð grafito Þ ! n C ð 3 P Þ, donde n es un número lo suficientemente grande para representar la sustancia grafito en lugar de solo un átomo. Todas las especies en la figura aumentarán en número por un factor de n, pero la división por este factor común aún nos dará la Ec. (190). Otro punto es que aunque el hidrógeno y el oxígeno son sólidos a 0 K, estamos considerando moléculas aisladas que se atomizan.
+ 
+De los 3 enfoques anteriores, el método de atomización da mejores resultados, especialmente para moléculas orgánicas y es concenpualmente el más sencillo, porque se basa en la ruptura de enlaces de una molécula para obtener a sus atomos en fase gasesosa\cite{Nicolaides1996}. Veamos el principio del método de atomización con la molécula de metanol. \\
+
+El metanol se atomiza (conceptualmente) a T = 0 K en los átomos que lo constituyen, es decir,  carbono, hidrógeno y oxígeno (en sus estados electrónicos fundamentales). Además, los átomos de la molécula en sus estados estándar también son usados para formar dicha molécula. La entalpía de formación del metanol a T = 0 K, $\Delta H^{\circleddash}_{f0}(CH_3OH)$, se obtiene al igualar la energía necesaria para generar los átomos a través del metanol ($ \Delta H^{\circleddash}_{f0}(CH_3OH)$ + $ \Delta H^{\circleddash}_{a0}(CH_3OH)$) a la energía para hacerlo directamente desde sus elementos en sus estados estándar:
+
+\begin{equation}
+\Delta H^{\circleddash}_{f0}(CH_3OH) + \Delta H^{\circleddash}_{a0} = \Delta H^{\circleddash}_{f0} (C(^{3}P) + 4H(^{2}S) + O(^{3}S))
+\label{eq:3.13}
+\end{equation}
+
+\begin{equation}
+\Delta H^{\circleddash}_{f0}(CH_3OH) = \Delta H^{\circleddash}_{f0} (C(^{3}P) + 4H(^{2}S) + O(^{3}S)) - \Delta H^{\circleddash}_{f0} (CH_3OH)
+\label{eq:3.14}
+\end{equation}\\
+
+La entalpía de atomización $\Delta H^{\circleddash}_{a0}$ a T = 0 K ab initio del metanol, es la diferencia de entalpía entre los átomos de la molécula y el metanol. Para calcular $\Delta H^{\circleddash}_{f0}$ necesitamos la entalpía a T = 0 K de formación de los átomos de C, H y O y la entalpía de atomización T = 0 K del metanol. Las entalpías de atomización del hidrógeno y el oxígeno se pueden calcular ab initio, pero no de forma fiable y precisa. Para mantener la coherencia, utilizaremos valores experimentales de las tres entalpías de atomización elementales, como se recomienda \cite{Nicolaides1996}. De la ecuación \ref{eq:3.15}, la entalpía de atomización T = 0 K del metanol es simplemente las suma de las entalpías ab initio de los átomos que la constituyen menos la entalpía ab initio corregida por ZPE del metanol:
+
+\begin{equation}
+\Delta H^{\circleddash}_{a0}(CH_3OH) = \Delta E^{total}_{0K} (C(^{3}P) + 4H(^{2}S) + O(^{3}S)) - \Delta E^{total}_{0K} (CH_3OH)
+\label{eq:3.15}
+\end{equation}\\
 
 \begin{figure}[hbtp]
 \begin{center}
 \includegraphics[scale=1]{graphs/atomization-CH3OH.png}
-\caption{Principio detrás del cálculo ab initio de la entalpía de formación por el método de atomización. El metanol se atomiza (conceptualmente) a 0 K en átomos de carbono, hidrógeno y oxígeno; los elementos en sus estados estándar también se usan para hacer estos átomos y para hacer metanol. El calor de formación del metanol a 0 K, $\Delta H_{f0}^{\circle}$(CH$_{3}$OH), se obtiene al igualar la energía necesaria para generar los átomos a través del metanol $ \Delta H_{f0}^{\circle}$(CH$_{3}$OH) + $\Delta H^{\circle}_{a0}$(CH$_{3}$OH) a la necesaria para hacerlos directamente a partir de los elementos en sus estados estándar. El diagrama no pretende implicar que el metanol necesariamente se encuentre por encima de sus elementos en entalpía.}
+\caption{Diagrama de entalpía de atomización de metanol. El diagrama no implicar que el metanol necesariamente se encuentre por encima de sus elementos en entalpía.}
 \label{atm-metanol}
 \end{center}
 \end{figure}
+
+Los valores experimentales de las entalpías de atomización de los átomos a T = 0 K de $(C(^{3}P) + 4H(^{2}S) + O(^{3}S))$ en kJ $mol^{-1}$ son:
+
+
+\begin{table}
+\begin{center}
+\begin{tabular}{||c|c||}
+\hline 
+Átomos  & Entalpías experimentales (kJ $mol^{-1}$) \\ 
+\hline 
+C & 711.2 \\ 
+\hline 
+H & 216.035 \\ 
+\hline 
+O & 246.8 \\ 
+\hline 
+\end{tabular}
+\caption{Entalpías de formación experimentales reportadas por Nicolaides y otros autores \cite{Nicolaides1996}.}
+\label{Nicolaides-table}
+\end{center}
+\end{table}
+
+pagina 354 Lewars  (segunda tabla)
+
+
+
+Ahora, para ajustar la entalpía de formación de T = 0 K a T = 298.15 K, sumamos el aumento de entalpía del metanol al pasar de T = 0 K a T = 298.15 K y restamos los aumentos correspondientes de los elementos en sus estados estándar. El valor del metanol es la diferencia de dos cantidades de G4 (298 K y 0 K) proporcionadas en el resumen termoquímico al final del cálculo de G4 implementado en \textit{Gaussian 09}. 
 
 
 \begin{comment}
