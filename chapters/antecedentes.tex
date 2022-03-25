@@ -5,6 +5,7 @@ Seguramente el concepto de energía sea el más usado, conocido e importante en 
 
 \begin{equation}
 \Delta U = U_{2} - U_{1}
+\label{eq:3.1}
 \end{equation}
 
 donde $U_{2}$ y $U_{1}$ son las energías internas del sistema en su estado final e inicial, respectivamente \cite{Chang2008}.
@@ -16,6 +17,7 @@ Además, la variación de la energía interna, es una magnitud indispensable par
 A la cantidad de energía de un sistema que se encuentra a presión constante se le conoce como \textbf{entalpía (H)} y matematicamente se define como 
 \begin{equation}
  H = U + PV
+ \label{eq:3.2}
 \end{equation}
 
 donde U, P y V son  la energía interna, la presión y volumen del sistema. H tiene unidades de energía.\\
@@ -24,6 +26,7 @@ Dado que U, P y V son funciones de estado, H también lo será. Por lo tanto, el
 
 \begin{equation}
 \Delta H = H_{2} - H_{1} = (U_{2} + P_{2}V_{2})-(U_{1} + P_{1}V_{1})
+\label{eq:3.3}
 \end{equation}
 
 \section{Entalpía de reacción}
@@ -32,6 +35,7 @@ Existen procesos químicos que se llevan a cabo a presión constante, un ejemplo
 
 \begin{equation}
 \Delta H = H_{productos} - H_{reactivos}
+\label{eq:3.4}
 \end{equation}
 
 \section{Calorimetría}
@@ -53,7 +57,6 @@ Por lo regular, se reportan valores de $\Delta H_{f}^{\circ}$ a T = 298.15 K. Si
  2C(grafito) + 3H_{2}(g) + \frac{1}{2}O_{2}(g) \longrightarrow C_{2}H_{5}OH(l)
 \label{eq:3.5}
 \end{equation}
-
 
 La fuente elemental de oxígeno es $O_{2}$, no O ni $O_{3}$, porque el $O_{2}$ es la forma estable del oxígeno a T = 298.15 K y a presión atmosférica. De forma similar, la fuente elemental del carbono es el grafito y no el diamante, porque el grafito es la forma más estable a T = 298.15 K y a P = 1 atm. De igual manera, la forma más estable del hidrógeno en condiciones estándar es el $H_{2}$(g), así que este se utiliza como la fuente del hidrógeno en la ecuación \ref{eq:3.5}.
 
@@ -118,7 +121,7 @@ Sería imposible medir de forma directa la entalpía en el caso de la reacción 
 \label{eq:3.12}
 \end{equation}
 
-\begin{figure}[hbtp]
+\begin{figure}[H]
 \begin{center}
 \includegraphics[scale=1]{graphs/CO.png}
 \caption{Diagrama de entalpía para la formación de monóxido de carbono. El cambio de entalpía de la reacción total es igual a la suma de los cambios de entalpía de los dos pasos.}
@@ -256,6 +259,7 @@ Los valores experimentales de las entalpías de atomización de los átomos a T 
 \hline 
 Átomos  & Entalpías experimentales (kJ $mol^{-1}$) \\ 
 \hline 
+\hline
 C & 711.2 \\ 
 \hline 
 H & 216.035 \\ 
@@ -276,6 +280,7 @@ Posteriormente, para calcular $\Delta H^{\circleddash}_{a0}(CH_3OH)$ haremos uso
 \begin{tabular}{||c|c||}
 \hline 
 Átomos  & Entalpías G4 a T = 0 K  (hartrees) \\ 
+\hline
 \hline 
 C & -37.834168 \\ 
 \hline 
@@ -297,14 +302,14 @@ El valor de metanol de $-115.651767 h$ podría llamarse el ``cero absoluto'' de 
 \begin{multline}
 \Delta H^{\circleddash}_{a0}(CH_3OH) = -37.834168 + 4(-0.501420)-75.045501-(-115.651767) h =...\\
 ...= 0.766418 \times 2625.5 kJ mol^{-1} = 2012.230459 kJ mol^{-1}
-\label{eq:3.15}
+\label{eq:3.16}
 \end{multline}\\
 
 De la ecuación \ref{eq:3.14} la entalpía de formación a T = 0 K de metanol es:\\
 
 \begin{multline}
 \Delta H^{\circleddash}_{f0}(CH_3OH) = 711.2 + 4(216.035) + 246.8 -2012.230459 kJ mol^{-1} = -189.1 kJ mol^{-1}
-\label{eq:3.16}
+\label{eq:3.17}
 \end{multline}\\
 
 Nicolaides y otros autores \cite{Nicolaides1996} reportan el valor de $195.7 kJ mol^{-1}$ a T = 0 K  por el método de atomización y los valores experimentales son  $190.7kJ mol^{-1}$ y $189.8 kJ mol^{-1}$, en concordancia con el valor G4 calculado aquí. Cualquier inexactitud en la energía de atomización calculada, se mostrará en la entalpía de formación, y solo un buen método de alta precisión puede mitigar este error de manera confiable. Para ajustar la entalpía de formación de T = 0 K a T = 298.15 K, debemos agregar dicho valor y restar los aumentos correspondientes para los elementos en sus estados estándar. El valor para el metanol es la diferencia de las dos cantidades G4 proporcionadas en el resumen termoquímico al final del cálculo  implementado en Gaussian. El aumento de la entalpía del metanol al pasar de T = 0 K a T = 298 K es:
@@ -312,13 +317,13 @@ Nicolaides y otros autores \cite{Nicolaides1996} reportan el valor de $195.7 kJ 
 
 \begin{equation}
 \Delta \Delta H^{\circleddash}(CH_3OH) = G4 \textrm{Entalpia} - G4 \:(0 K)
-\label{eq:3.17}
+\label{eq:3.18}
 \end{equation}\\
 
 \begin{multline}
 \Delta \Delta H^{\circleddash}(CH_3OH) = -115.647489 - (-115.651767)\:h =...\\
 ...= (0.004278)(2625.5 kJ mol^{-1}) = 11.23188 kJ mol^{-1}
-\label{eq:3.18}
+\label{eq:3.19}
 \end{multline}\\
 
 La entalpía experimental para los respectivos elementos también es reportada por Nicolaides y otros autores \cite{Nicolaides1996} en $kJ mol^{-1}$, veáse la tabla \ref{Nicolaides-exp-table}.
@@ -345,26 +350,21 @@ De estos valores y $\Delta \Delta H^{\circleddash}(CH_3OH)$, se calcula la ental
 
 \begin{multline}
 \Delta H^{\circleddash}_{f298}(CH_3OH) = \Delta H^{\circleddash}_{f0}(CH_{3}OH) + \Delta \Delta H^{\circleddash} (CH_{3}OH) \\ - (\Delta \Delta H^{\circleddash} (C) + 2 \Delta \Delta H^{\circleddash}(H_{2}) + \frac{1}{2} \Delta \Delta H^{\circleddash}(O_{2}))
-\label{eq:5.19}
+\label{eq:5.20}
 \end{multline}\\
 
 \begin{multline}
 \Delta H^{\circleddash}_{f298}(CH_3OH) = -190.1126 + 11.23188  \\ - (1.05100 + 2(8.46700) + \frac{1}{2} (8.67000))\:kJ\cdot mol^{-1}
-\label{eq:5.20}
+\label{eq:5.21}
 \end{multline}\\
 
 \begin{equation}
 \Delta H^{\circleddash}_{f298}(CH_3OH) = -201.21\:kJ\cdot mol^{-1}
-\label{eq:5.21}
+\label{eq:5.22}
 \end{equation}\\
 
-El valor experimental a T = 298.15 K aceptado es de 205 $\pm$ 10 $kJmol^{-1}$[200]. Por lo tanto, La cifra calculada está dentro del error experimental esperado.
+El valor experimental a T = 298.15 K aceptado es de 205 $\pm$ 10 $kJmol^{-1}$\cite{Afeefy2009}. Por lo tanto, La cifra calculada está dentro del error experimental esperado.
 
-\begin{comment}
-[200] Afeefy HY, Liebman JF, Stein SE (2009) Neutral thermochemical data. In: Linstrom PJ,Mallard WG (eds) NIST Chemistry WebBook, NIST Standard Reference Database Number
-69, , National Institute of Standards and Technology, Gaithersburg MD, 20899, http://
-webbook.nist.gov, (retrieved July 15, 2009).
-\end{comment}
 
 \section{Relaciones Generales de Termodinámica Estadística}
 
@@ -445,8 +445,6 @@ La rotación libre de una molécula rígida también está cuantificada (el mome
 [H(T)-H(0)]_{rot}^{lineal} =  RT
 \label{eq:3.29}
 \end{equation}
-
-
 
 \subsection{Función de partición vibracional}
 

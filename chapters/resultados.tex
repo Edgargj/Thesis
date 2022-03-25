@@ -28,6 +28,7 @@ La entalpía de formación fue calculada a partir del método de atomización \c
 \subsection {Inicio}
 
 El programa comienza con el uso de un archivo de entrada que contiene la información necesaria de la molécula para iniciar con la lectura de los datos. Para la \textbf{molécula X}, el archivo de entrada tendrá la siguiente forma:
+
 \begin{lstlisting}
 G4
 3
@@ -85,16 +86,16 @@ Como tercer paso en el diagrama general se encuentra la determinación del méto
 
 \subsection{Paso 3 del diagrama de flujo general}
 
-En este paso se realiza el cálculo de la entalpía de atomización a T = 0 K de la molécula. Aquí se utilizan los valores del método G4 para cada uno de los átomos presentes en la \textbf{molécula X}, la cantidad estequiométrica de estos y la entalpía G4 de la molécula a T = 0 K (veáse las ecuaciones \ref{eq:5.1} y \ref{eq:5.2}). Para concluir, se realiza una conversión de unidades de energía (hartree a kJ). Obsérvese las ecuaciones \ref{eq:5.4} y \ref{eq:5.5}.
+En este paso se realiza el cálculo de la entalpía de atomización a T = 0 K de la molécula. Aquí se utilizan los valores del método G4 para cada uno de los átomos presentes en la \textbf{molécula X}, la cantidad estequiométrica de estos y la entalpía G4 de la molécula a T = 0 K (veáse las ecuaciones \ref{eq:4.1} y \ref{eq:4.2}). Para concluir, se realiza una conversión de unidades de energía (hartree a kJ). Obsérvese las ecuaciones \ref{eq:4.4} y \ref{eq:4.5}.
 
 \begin{equation}
 \Delta H^{\circleddash}_{a0}(CH_3OH) = \Delta H^{total}_{0K} (C(^{3}P) + 4H(^{2}S) + O(^{3}S))- \Delta E^{total}_{0K} (CH_{3}OH)
-\label{eq:5.1}
+\label{eq:4.1}
 \end{equation}
 
 \begin{equation}
 \Delta H^{\circleddash}_{a0}(CH_3OH) = -37.834170 + 4(-0.501420) - 75.045500 -(-115.651767) \: h
-\label{eq:5.2}
+\label{eq:4.2}
 \end{equation}
 
 \begin{equation}
@@ -103,26 +104,26 @@ En este paso se realiza el cálculo de la entalpía de atomización a T = 0 K de
 
 \begin{equation}
 \Delta H^{\circleddash}_{a0}(CH_3OH) = (-0.766417 \:h)(2625.4997480 \:kJ\cdot mol^{-1})
-\label{eq:5.4}
+\label{eq:4.4}
 \end{equation}
 
 \begin{equation}
 \Delta H^{\circleddash}_{a0}(CH_3OH) = 2012.2276 \:kJ\cdot mol^{-1}
-\label{eq:5.5}
+\label{eq:4.5}
 \end{equation}
  
 \subsection{Paso 4 del diagrama de flujo general}
 
-Hecho lo anterior, se realiza el cálculo de la entalpía de formación a T = 0 K de la molécula. Nuevamente, se utilizan valores experimentales para cada uno de los átomos presentes en la molécula junto con su cantidad especifica y el valor de la entalpía de atomización a T = 0 K obtenido anteriormente (ecuaciones \ref{eq:5.6} y \ref{eq:5.7}). Al valor obtenido en este paso se le conoce como \textbf{calor de formación} (ecuación \ref{eq:5.9}). Por último, se realiza una conversión de unidades de energía (kJ a kcal), ver las ecuaciones \ref{eq:5.10} y \ref{eq:5.11}. 
+Hecho lo anterior, se realiza el cálculo de la entalpía de formación a T = 0 K de la molécula. Nuevamente, se utilizan valores experimentales para cada uno de los átomos presentes en la molécula junto con su cantidad especifica y el valor de la entalpía de atomización a T = 0 K obtenido anteriormente (ecuaciones \ref{eq:4.6} y \ref{eq:4.7}). Al valor obtenido en este paso se le conoce como \textbf{calor de formación} (ecuación \ref{eq:4.9}). Por último, se realiza una conversión de unidades de energía (kJ a kcal), ver las ecuaciones \ref{eq:4.10} y \ref{eq:4.11}. 
 
 \begin{equation}
 \Delta H^{\circleddash}_{f0}(CH_3OH) = \Delta H^{\circleddash}_{f0} (C(^{3}P) + 4H(^{2}S) + O(^{3}S))- \Delta E^{\circleddash}_{f0} (CH_{3}OH)
-\label{eq:5.6}
+\label{eq:4.6}
 \end{equation}
 
 \begin{equation}
 \Delta H^{\circleddash}_{f0}(CH_3OH) = 711.185 + 4(216.03500) + 246.7900 - 2012.2276 \:kJ\cdot mol^{-1}
-\label{eq:5.7}
+\label{eq:4.7}
 \end{equation}
 
 \begin{equation}
@@ -131,77 +132,77 @@ Hecho lo anterior, se realiza el cálculo de la entalpía de formación a T = 0 
 
 \begin{equation}
 \Delta H^{\circleddash}_{f0}(CH_3OH) = -190.1126 \:kJ\cdot mol^{-1}
-\label{eq:5.9}
+\label{eq:4.9}
 \end{equation}
 
 \begin{equation}
 \Delta H^{\circleddash}_{f0}(CH_3OH) = (-190.1126 \:kJ\cdot mol^{-1})(0.023888 \:kcal)
-\label{eq:5.10}
+\label{eq:4.10}
 \end{equation}
 
 \begin{equation}
 	\Delta H^{\circleddash}_{f0}(CH_3OH) = -45.41 \:kcal
-\label{eq:5.11}
+\label{eq:4.11}
 \end{equation}
 
 
 \subsection{Paso 5 del diagrama de flujo general}
 
-El paso 5 se encarga de cuantificar la diferencia entre las  dos cantidades G4 (T = 0 K y T = 298.15 K) leídas en el paso 1 (ecuación \ref{eq:5.13}). Además, se realiza una conversión de unidades de energía (hartree a kJ), ecuaciones \ref{eq:5.14} y \ref{eq:5.15}.
+El paso 5 se encarga de cuantificar la diferencia entre las  dos cantidades G4 (T = 0 K y T = 298.15 K) leídas en el paso 1 (ecuación \ref{eq:4.13}). Además, se realiza una conversión de unidades de energía (hartree a kJ), ecuaciones \ref{eq:4.14} y \ref{eq:4.15}.
 
 \begin{equation}
 	\Delta \Delta H^{\circleddash}(CH_3OH) = G4 \textrm{Entalpia} - G4 \:(0 K)
-\label{eq:5.12}
+\label{eq:4.12}
 \end{equation}
 
 \begin{equation}
 \Delta \Delta H^{\circleddash}(CH_3OH) = -115.647489 - (-115.651767)\:h
-\label{eq:5.13}
+\label{eq:4.13}
 \end{equation}
 
 \begin{equation}
 \Delta \Delta H^{\circleddash}(CH_3OH) = (0.004278)(2625.4997480 \:kJ\cdot mol^{-1})
-\label{eq:5.14}
+\label{eq:4.14}
 \end{equation}
 
 \begin{equation}
 \Delta \Delta H^{\circleddash}(CH_3OH) = 11.23188\:kJ\cdot mol^{-1}
-\label{eq:5.15}
+\label{eq:4.15}
 \end{equation}
 
 
 \subsection{Paso 6 del diagrama de flujo general}
 
-En el paso 6 se obtiene el valor de la entalpía de formación a T = 298.15 K (sumando el calor de formación, la diferencia de las dos cantidades G4 y restando los incrementos correspondientes para los elementos de la molécula en sus estados estándar), en consecuencia, son usados los valores obtenidos en los pasos 4 y 5 (veáse las ecuaciones \ref{eq:5.16}, \ref{eq:5.17}, \ref{eq:5.18} y \ref{eq:5.19}). Finalmente, se realiza una conversión de unidades de energía de kJ a kcal (ecuaciones \ref{eq:5.20} y \ref{eq:5.21}).
+En el paso 6 se obtiene el valor de la entalpía de formación a T = 298.15 K (sumando el calor de formación, la diferencia de las dos cantidades G4 y restando los incrementos correspondientes para los elementos de la molécula en sus estados estándar), en consecuencia, son usados los valores obtenidos en los pasos 4 y 5 (veáse las ecuaciones \ref{eq:4.16}, \ref{eq:4.17}, \ref{eq:4.18} y \ref{eq:4.19}). Finalmente, se realiza una conversión de unidades de energía de kJ a kcal (ecuaciones \ref{eq:4.20} y \ref{eq:4.21}).
 
 \begin{multline}
 \Delta H^{\circleddash}_{f298}(CH_3OH) = \Delta H^{\circleddash}_{f0}(CH_{3}OH) + \Delta \Delta H^{\circleddash} (CH_{3}OH) \\ - (\Delta \Delta H^{\circleddash} (C) + 2 \Delta \Delta H^{\circleddash}(H_{2}) + \frac{1}{2} \Delta \Delta H^{\circleddash}(O_{2}))
-\label{eq:5.16}
+\label{eq:4.16}
 \end{multline}
 
 \begin{multline}
 \Delta H^{\circleddash}_{f298}(CH_3OH) = -190.1126 + 11.23188  \\ - (1.05100 + 2(8.46700) + \frac{1}{2} (8.67000))\:kJ\cdot mol^{-1}
-\label{eq:5.17}
+\label{eq:4.17}
 \end{multline}
 
 \begin{equation}
 \Delta H^{\circleddash}_{f298}(CH_3OH) = -190.1126 + 11.23188 - 22.3265\:kJ\cdot mol^{-1}
-\label{eq:5.18}
+\label{eq:4.18}
 \end{equation}
 
 \begin{equation}
 \Delta H^{\circleddash}_{f298}(CH_3OH) = -201.21\:kJ\cdot mol^{-1}
-\label{eq:5.19}
+\label{eq:4.19}
 \end{equation}
 
 \begin{equation}
 \Delta H^{\circleddash}_{f298}(CH_3OH) = (-201.21 \:kJ\cdot mol^{-1})(0.023888 \:kcal)
-\label{eq:5.20}
+\label{eq:4.20}
 \end{equation}
 
 \begin{equation}
 \Delta H^{\circleddash}_{f298}(CH_3OH) = -48.06 \:kcal
-\label{eq:5.21}
+\label{eq:4.21}
 \end{equation}
 
 
@@ -219,7 +220,7 @@ El tipo de aproximación usada solo puede tener dos valores, 0 y 1. Sí el archi
 
 También existen dos posibles valores en el archivo de entrada para el parámetro de la linealidad de la molécula. Un valor de 1 devolverá un RT en la contribución rotacional, en cambio, sí el valor es 0, el condicional retornará un $\frac{3}{2}$ de $RT$ en la contribución rotacional. Después, inicia una estructura de control que se repetirá el mismo número de veces que el número de modos de vibración de la molécula (una molécula que tiene $N$ especies atómicas puede tener solamente $3N-6$ modos fundamentales de vibración para una molécula no lineal, o $3N-5$ si la molécula es lineal). \\
 
-La iteración usa las ecuaciones \ref{eq:3.27}, \ref{eq:3.28}, \ref{eq:3.29} y \ref{eq:3.30} que provienen de la Termodinámica Estadística \cite{McQuarrie1976, Irikura1998} ,para determinar a la energía interna como una suma de las contribuciones vibracionales, rotacionales, traslacionales y electrónicas (ecuación \ref{eq:3.31}), donde \textit{\textbf{R}} es la constante de los gases, \textit{\textbf{T}} es la temperatura en Kelvin, \textit{\textbf{h}} es la constante de Planck, $v_i$ es el número de onda n-ésimo de la molécula, \textit{\textbf{k}} es la constante de Boltzmann y \textit{\textbf{e}} es el número de Euler. La contribuci\'{o}n traslacional siempre tendr\'{a} el valor de $\frac{3}{2} RT$ para cualquier mol\'{e}cula (ecuación \ref{eq:3.27}). Adem\'{a}s, se agrega un RT adicional a la energ\'{i}a interna para convertir la energía en entalpía (el llamado término PV, ecuación). Cabe aclarar, que el valor obtenido en la primera iteración es acumulativo para los subsecuentes. Concluida la determinación, se devuelve la suma total de la energía interna. Para la \textbf{molécula X} el número de modos de vibración será 12 (es una molécula no lineal), por lo consiguiente, la ecuación \ref{eq:3.30} se repetirá 12 veces con cada una de las frecuencias de la molécula. El resultado final es la suma de las contribuciones de la energía interna, véase la ecuación \ref{eq:4.27}.
+La iteración usa las ecuaciones \ref{eq:3.27}, \ref{eq:3.28}, \ref{eq:3.29} y \ref{eq:3.30} que provienen de la Termodinámica Estadística \cite{McQuarrie1976, Irikura1998} ,para determinar a la energía interna como una suma de las contribuciones vibracionales, rotacionales, traslacionales y electrónicas (ecuación \ref{eq:3.31}), donde \textit{\textbf{R}} es la constante de los gases, \textit{\textbf{T}} es la temperatura en Kelvin, \textit{\textbf{h}} es la constante de Planck, $v_i$ es el número de onda n-ésimo de la molécula, \textit{\textbf{k}} es la constante de Boltzmann y \textit{\textbf{e}} es el número de Euler. La contribuci\'{o}n traslacional siempre tendr\'{a} el valor de $\frac{3}{2} RT$ para cualquier mol\'{e}cula (ecuación \ref{eq:3.27}). Adem\'{a}s, se agrega un RT adicional a la energ\'{i}a interna para convertir la energía en entalpía (el llamado término PV, ecuación). Cabe aclarar, que el valor obtenido en la primera iteración es acumulativo para los subsecuentes. Concluida la determinación, se devuelve la suma total de la energía interna. Para la \textbf{molécula X} el número de modos de vibración será 12 (es una molécula no lineal), por lo consiguiente, la ecuación \ref{eq:3.30} se repetirá 12 veces con cada una de las frecuencias de la molécula. El resultado final es la suma de las contribuciones de la energía interna, véase la ecuación \ref{eq:3.31}.
 
 \begin{equation}
 [H(298.15)-H(0)]= 1315.1747 + 3718.4568 + 3718.4568 + 2478.9712 = 11.2310kJ\cdot mol^{-1}
@@ -250,18 +251,17 @@ El paso 9 simplemente remplaza el valor obtenido anteriormente (energía interna
 \subsection{Paso 11 del diagrama de flujo general}
 El último paso del diagrama de flujo, se encarga de devolver los valores calculados anteriormente, imprimiéndolos en la pantalla a través de la línea de comandos de siguiente forma:
 
-\begin{lstlisting}
-./computeEnthalpyNIST.x  CH3OH-G4.txt
+\begin{lstlisting}[caption = Output de CH3OH-G4.txt en EnthalpyNIST]
+$./computeEnthalpyNIST.x  CH3OH-G4.txt$
+========================================================================
+          New calculation of molecular enthalpies of formation
 
-=============================================================
-     New calculation of molecular enthalpies of formation
+      Enthalpies of formation of gaseous atoms at 0 K and thermal 
+   corrections for elements in their standard state at 298.15 K from:
 
-Enthalpies of formation of gaseous atoms at 0 K and thermal 
-corrections for elements in their standard state at 298.15 K from:
-
-      NIST-JANAF Thermochemical Tables J. Physics Chem. 
-     		Data Monograph 9, 1998, 1-1951.
-=============================================================
+            NIST-JANAF Thermochemical Tables J. Physics Chem. 
+                    Data Monograph 9, 1998, 1-1951.
+========================================================================
 Heats of formation:
 0K          -190.11 kJ mol-1
 0K          -45.41 kcal mol-1
@@ -270,10 +270,10 @@ Using Nicolaides method:
 298K        -201.21 kJ mol-1
 298K        -48.06 kcal mol-1
 
-Using G4 Enthalpy:
+Using G4: 
 298K        -201.21 kJ mol-1
 298K        -48.06 kcal mol-1
-=============================================================
+========================================================================
 \end{lstlisting}
 
 \section{Código}
@@ -317,17 +317,17 @@ El trabajo de esta clase y sus variantes (EnthalpyG3, EnthalpyG3MP2, EnthalpyCBS
 Es fundamental corroborar que los programas funcionan de forma correcta, por lo que se realizaron pruebas con moléculas que cuentan con entalpías de formación conocidas y que han sido reportadas en la literatura científica \cite{Ximello2020}. Las moléculas elegidas son isómeros del nitrobenzaladeído (figura \ref{n-NBA}) y son:
 
 \begin{itemize}
-\item 2-nitrobenzaldehído (2NBA).
-\item 3-nitrobenzaldehído (3NBA).
-\item 4-nitrobenzaldehído (4NBA).
+\item 2-nitrobenzaldeh\'{i}do (2NBA).
+\item 3-nitrobenzaldeh\'{i}do (3NBA).
+\item 4-nitrobenzaldeh\'{i}do (4NBA).
 \end{itemize}
 
-Los derivados de nitrobenzaladehído son compuestos aromáticos que tienen un gran número de aplicaciones. Entre ellos se encuentran los intermediarios en la preparación de productos químicos de alto valor agregado, pesticidas, materiales ópticos no lineales, productos farmacéuticos, bases de Schiff, etcétera \cite{Ximello2020}.
+Los derivados de nitrobenzaladeh\'{i}do son compuestos aromáticos que tienen un gran número de aplicaciones. Entre ellos se encuentran los intermediarios en la preparación de productos químicos de alto valor agregado, pesticidas, materiales ópticos no lineales, productos farmacéuticos, bases de Schiff, etcétera \cite{Ximello2020}.
 
 \begin{figure}[hbtp]
 \begin{center}
-\includegraphics[width=\textwidth]{graphs/n-NBA}
-\caption{Estructuras moleculares del 2-nitrobenzaldehído (2NBA), 3-nitrobenzaldehído (3NBA) y 4-nitrobenzaldehído (4NBA).}
+\includegraphics[width=\textwidth]{graphs/n-NBA.pdf}
+\caption{Estructuras moleculares del 2-nitrobenzaldeh\'{i}do (2NBA), 3-nitrobenzaldeh\'{i}do (3NBA) y 4-nitrobenzaldeh\'{i}do (4NBA).}
 \label{n-NBA}
 \end{center}
 \end{figure}
@@ -336,22 +336,23 @@ Las entalpías de formación de las moléculas fueron calculadas utilizando los 
 
 \subsection{Conjunto de pruebas: 2NBA, 3NBA y 4NBA}
 
-Es posible apreciar la entalpía de formación a T = 298.15 K de las 15 simulaciones realizadas en la línea 21 de cada molécula. Todos los resultados coinciden con los valores de las moléculas de 2NBA, 3NBA y 4NBA reportados por Ximello y otros autores \cite{Ximello2020}, véase las tablas \ref{Ximello-table-1}, \ref{Ximello-table-2} y \ref{Ximello-table-3}.  
+Es posible apreciar la entalpía de formación a T = 298.15 K de las 15 simulaciones realizadas en las líneas 22, 20 y 21 de cada molécula, respectivamente. Todos los resultados coinciden con los valores de las moléculas de 2NBA, 3NBA y 4NBA reportados por Ximello y otros autores \cite{Ximello2020}, véase las tablas \ref{Ximello-table-1}, \ref{Ximello-table-2} y \ref{Ximello-table-3}.  
 
 
 %2NBALa-2.txt
-\begin{lstlisting}
+\begin{lstlisting}[caption = Output de 2NBALa-2.txt en EnthalpyTajti]
 ./computeEnthalpyTajti.x 2NBALa-2.txt
-
-=============================================================
-New calculation of molecular enthalpies of formation                         
+========================================================================
+           New calculation of molecular enthalpies of formation                         
                                                                                                    
-Enthalpies of formation of gaseous atoms at 0 K (with the exception of carbon data          
-711.79 kJ/mol from A. Tajti et al. J. Chem. Phys. 121, 2004, 11599) and thermal            
-      corrections for elements in their standard states at 298.15 K from:                   
+Enthalpies of formation of gaseous atoms at 0 K (with the exception of 
+carbon data 711.79 kJ/mol from A. Tajti et al. J. Chem. Phys. 121, 
+2004, 11599) and thermal corrections for elements in their standard 
+states at 298.15 K from:                   
                                                                                                    
-NIST-JANAF Thermochemical Tables J. Physics Chem. Data Monograph 9, 1998, 1-1951.
-=============================================================
+NIST-JANAF Thermochemical Tables J. Physics Chem. Data Monograph 9, 1998,
+ 1-1951.
+========================================================================
 Heats of formation:
 0K          -8.58 kJ mol-1
 0K          -2.05 kcal mol-1
@@ -363,22 +364,23 @@ Using Nicolaides method:
 Using G4 Enthalpy:
 298K        -28.19 kJ mol-1
 298K        -6.73 kcal mol-1
-=============================================================
+========================================================================
 \end{lstlisting}
 
 %2NBALb-2.txt
-\begin{lstlisting}
+\begin{lstlisting}[caption = Output de 2NBALb-2.txt en EnthalpyTajti]
 ./computeEnthalpyTajti.x 2NBALb-2.txt
-
-=============================================================
-New calculation of molecular enthalpies of formation                         
+========================================================================
+           New calculation of molecular enthalpies of formation                         
                                                                                                    
-Enthalpies of formation of gaseous atoms at 0 K (with the exception of carbon data          
-711.79 kJ/mol from A. Tajti et al. J. Chem. Phys. 121, 2004, 11599) and thermal            
-      corrections for elements in their standard states at 298.15 K from:                   
+Enthalpies of formation of gaseous atoms at 0 K (with the exception of 
+carbon data 711.79 kJ/mol from A. Tajti et al. J. Chem. Phys. 121, 
+2004, 11599) and thermal corrections for elements in their standard 
+states at 298.15 K from:                   
                                                                                                    
-NIST-JANAF Thermochemical Tables J. Physics Chem. Data Monograph 9, 1998, 1-1951.
-=============================================================
+NIST-JANAF Thermochemical Tables J. Physics Chem. Data Monograph 9, 1998,
+ 1-1951.
+========================================================================
 Heats of formation:
 0K          -16.26 kJ mol-1
 0K          -3.88 kcal mol-1
@@ -390,51 +392,23 @@ Using Nicolaides method:
 Using G4 Enthalpy:
 298K        -36.25 kJ mol-1
 298K        -8.66 kcal mol-1
-
-=============================================================
-\end{lstlisting}
-
-%3NBALb-2.txt
-\begin{lstlisting}
-./computeEnthalpyTajti.x 3NBALb-2.txt
-
-=============================================================
-New calculation of molecular enthalpies of formation                         
-                                                                                                   
-Enthalpies of formation of gaseous atoms at 0 K (with the exception of carbon data          
-711.79 kJ/mol from A. Tajti et al. J. Chem. Phys. 121, 2004, 11599) and thermal            
-      corrections for elements in their standard states at 298.15 K from:                   
-                                                                                                   
-NIST-JANAF Thermochemical Tables J. Physics Chem. Data Monograph 9, 1998, 1-1951.
-=============================================================
-Heats of formation: 
-0K          -33.75 kJ mol-1
-0K          -8.06 kcal mol-1
-                                                                                                   
-Using Nicolaides method: 
-298K        -56.26 kJ mol-1
-298K        -13.44 kcal mol-1
-                                                                                                   
-Using G4 Enthalpy: 
-298K        -53.82 kJ mol-1
-298K        -12.85 kcal mol-1
-
-=============================================================
+========================================================================
 \end{lstlisting}
 
 %3NBALa-2.txt
-\begin{lstlisting}
+\begin{lstlisting}[caption = Output de 3NBALa-2.txt en EnthalpyTajti]
 ./computeEnthalpyTajti.x 3NBALa-2.txt
-
-=============================================================
-New calculation of molecular enthalpies of formation                         
+========================================================================
+           New calculation of molecular enthalpies of formation                         
                                                                                                    
-Enthalpies of formation of gaseous atoms at 0 K (with the exception of carbon data          
-711.79 kJ/mol from A. Tajti et al. J. Chem. Phys. 121, 2004, 11599) and thermal            
-      corrections for elements in their standard states at 298.15 K from:                   
+Enthalpies of formation of gaseous atoms at 0 K (with the exception of 
+carbon data 711.79 kJ/mol from A. Tajti et al. J. Chem. Phys. 121, 
+2004, 11599) and thermal corrections for elements in their standard 
+states at 298.15 K from:                   
                                                                                                    
-NIST-JANAF Thermochemical Tables J. Physics Chem. Data Monograph 9, 1998, 1-1951.
-=============================================================
+NIST-JANAF Thermochemical Tables J. Physics Chem. Data Monograph 9, 1998,
+ 1-1951.
+========================================================================
 Heats of formation: 
 0K          -35.36 kJ mol-1
 0K          -8.45 kcal mol-1
@@ -446,23 +420,51 @@ Using Nicolaides method:
 Using G4 Enthalpy: 
 298K        -55.46 kJ mol-1
 298K        -13.25 kcal mol-1
+========================================================================
+\end{lstlisting}
 
-=============================================================
+%3NBALb-2.txt
+\begin{lstlisting}[caption = Output de 3NBALb-2.txt en EnthalpyTajti]
+./computeEnthalpyTajti.x 3NBALb-2.txt
+========================================================================
+           New calculation of molecular enthalpies of formation                         
+                                                                                                   
+Enthalpies of formation of gaseous atoms at 0 K (with the exception of 
+carbon data 711.79 kJ/mol from A. Tajti et al. J. Chem. Phys. 121, 
+2004, 11599) and thermal corrections for elements in their standard 
+states at 298.15 K from:                   
+                                                                                                   
+NIST-JANAF Thermochemical Tables J. Physics Chem. Data Monograph 9, 1998,
+ 1-1951.
+========================================================================
+Heats of formation: 
+0K          -33.75 kJ mol-1
+0K          -8.06 kcal mol-1
+                                                                                                   
+Using Nicolaides method: 
+298K        -56.26 kJ mol-1
+298K        -13.44 kcal mol-1
+                                                                                                   
+Using G4 Enthalpy: 
+298K        -53.82 kJ mol-1
+298K        -12.85 kcal mol-1
+========================================================================
 \end{lstlisting}
 
 %4NBALa-2.txt
-\begin{lstlisting}
+\begin{lstlisting}[caption = 4NBALa-2.txt en EnthalpyTajti]
 ./computeEnthalpyTajti.x 4NBALa-2.txt
-
-=============================================================
-New calculation of molecular enthalpies of formation                         
+========================================================================
+           New calculation of molecular enthalpies of formation                         
                                                                                                    
-Enthalpies of formation of gaseous atoms at 0 K (with the exception of carbon data          
-711.79 kJ/mol from A. Tajti et al. J. Chem. Phys. 121, 2004, 11599) and thermal            
-      corrections for elements in their standard states at 298.15 K from:                   
+Enthalpies of formation of gaseous atoms at 0 K (with the exception of 
+carbon data 711.79 kJ/mol from A. Tajti et al. J. Chem. Phys. 121, 
+2004, 11599) and thermal corrections for elements in their standard 
+states at 298.15 K from:                   
                                                                                                    
-NIST-JANAF Thermochemical Tables J. Physics Chem. Data Monograph 9, 1998, 1-1951.
-=============================================================
+NIST-JANAF Thermochemical Tables J. Physics Chem. Data Monograph 9, 1998,
+ 1-1951.
+========================================================================
 Heats of formation: 
 0K          -33.82 kJ mol-1
 0K          -8.08 kcal mol-1
@@ -474,52 +476,23 @@ Using Nicolaides method:
 Using G4 Enthalpy: 
 298K        -53.84 kJ mol-1
 298K        -12.86 kcal mol-1
-                             
-=============================================================
+========================================================================
 \end{lstlisting}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%1%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %2NBALa-2.txt
-\begin{lstlisting}
+\begin{lstlisting}[caption = Output de 2NBALa-2.txt en EnthalpyNIST]
 ./computeEnthalpyNIST.x 2NBALa-2.txt
+========================================================================
+          New calculation of molecular enthalpies of formation
 
-=============================================================
-New calculation of molecular enthalpies of formation                         
-                                                                                                   
-Enthalpies of formation of gaseous atoms at 0 K and thermal            
-corrections for elements in their standard states at 298.15 K from:
-                   
-                                                                                                   
-NIST-JANAF Thermochemical Tables J. Physics Chem. Data Monograph 9, 1998, 1-1951.
-=============================================================
-Heats of formation:
-0K          -7.11 kJ mol-1
-0K          -1.70 kcal mol-1
+      Enthalpies of formation of gaseous atoms at 0 K and thermal 
+   corrections for elements in their standard state at 298.15 K from:
 
-Using Nicolaides method:
-298K        -29.28 kJ mol-1
-298K        -6.99 kcal mol-1
-
-Using G3MP2 Enthalpy:
-298K        -26.60 kJ mol-1
-298K        -6.35 kcal mol-1
-=============================================================
-\end{lstlisting}
-
-%2NBALb-2.txt
-\begin{lstlisting}
-./computeEnthalpyNIST.x 2NBALb-2.txt
-
-=============================================================
-New calculation of molecular enthalpies of formation                         
-                                                                                                   
-Enthalpies of formation of gaseous atoms at 0 K and thermal            
-corrections for elements in their standard states at 298.15 K from:                   
-                                                                                                   
-                                                                                                   
-NIST-JANAF Thermochemical Tables J. Physics Chem. Data Monograph 9, 1998, 1-1951.
-=============================================================
+            NIST-JANAF Thermochemical Tables J. Physics Chem. 
+                    Data Monograph 9, 1998, 1-1951.
+========================================================================
 Heats of formation:
 0K          -16.61 kJ mol-1
 0K          -3.97 kcal mol-1
@@ -531,49 +504,47 @@ Using Nicolaides method:
 Using G3MP2 Enthalpy:
 298K        -36.42 kJ mol-1
 298K        -8.70 kcal mol-1
-=============================================================
+========================================================================
 \end{lstlisting}
 
-%3NBALb-2.txt
-\begin{lstlisting}
-./computeEnthalpyNIST.x 3NBALa-2.txt
+%2NBALb-2.txt
+\begin{lstlisting}[caption = Output de 2NBALb-2.txt en EnthalpyNIST]
+./computeEnthalpyNIST.x 2NBALb-2.txt
+========================================================================
+          New calculation of molecular enthalpies of formation
 
-=============================================================
-New calculation of molecular enthalpies of formation                         
-                                                                                                   
-Enthalpies of formation of gaseous atoms at 0 K and thermal            
-corrections for elements in their standard states at 298.15 K from:                   
-                                                                                                   
-                                                                                                   
-NIST-JANAF Thermochemical Tables J. Physics Chem. Data Monograph 9, 1998, 1-1951.
-=============================================================
+      Enthalpies of formation of gaseous atoms at 0 K and thermal 
+   corrections for elements in their standard state at 298.15 K from:
+
+            NIST-JANAF Thermochemical Tables J. Physics Chem. 
+                    Data Monograph 9, 1998, 1-1951.
+========================================================================
 Heats of formation:
-0K          -33.44 kJ mol-1
-0K          -7.99 kcal mol-1
+0K          -7.11 kJ mol-1
+0K          -1.70 kcal mol-1
 
 Using Nicolaides method:
-298K        -55.77 kJ mol-1
-298K        -13.32 kcal mol-1
+298K        -29.28 kJ mol-1
+298K        -6.99 kcal mol-1
 
 Using G3MP2 Enthalpy:
-298K        -53.19 kJ mol-1
-298K        -12.70 kcal mol-1
-=============================================================
+298K        -26.60 kJ mol-1
+298K        -6.35 kcal mol-1
+========================================================================
 \end{lstlisting}
 
 %3NBALa-2.txt
-\begin{lstlisting}
-./computeEnthalpyNIST.x 3NBALb-2.txt
+\begin{lstlisting}[caption = Output de 3NBALa-2.txt en EnthalpyNIST]
+./computeEnthalpyNIST.x 3NBALa-2.txt
+========================================================================
+          New calculation of molecular enthalpies of formation
 
-=============================================================
-New calculation of molecular enthalpies of formation                         
-                                                                                                   
-Enthalpies of formation of gaseous atoms at 0 K and thermal            
-corrections for elements in their standard states at 298.15 K from:                   
-                                                                                                   
-                                                                                                   
-NIST-JANAF Thermochemical Tables J. Physics Chem. Data Monograph 9, 1998, 1-1951.
-=============================================================
+      Enthalpies of formation of gaseous atoms at 0 K and thermal 
+   corrections for elements in their standard state at 298.15 K from:
+
+            NIST-JANAF Thermochemical Tables J. Physics Chem. 
+                    Data Monograph 9, 1998, 1-1951.
+========================================================================
 Heats of formation:
 0K          -35.18 kJ mol-1
 0K          -8.40 kcal mol-1
@@ -585,21 +556,47 @@ Using Nicolaides method:
 Using G3MP2 Enthalpy:
 298K        -54.94 kJ mol-1
 298K        -13.12 kcal mol-1
-=============================================================
+========================================================================
+\end{lstlisting}
+
+%3NBALb-2.txt
+\begin{lstlisting}[caption = Output de 3NBALb-2.txt en EnthalpyNIST]
+./computeEnthalpyNIST.x 3NBALb-2.txt
+========================================================================
+          New calculation of molecular enthalpies of formation
+
+      Enthalpies of formation of gaseous atoms at 0 K and thermal 
+   corrections for elements in their standard state at 298.15 K from:
+
+            NIST-JANAF Thermochemical Tables J. Physics Chem. 
+                    Data Monograph 9, 1998, 1-1951.
+========================================================================
+Heats of formation:
+0K          -33.44 kJ mol-1
+0K          -7.99 kcal mol-1
+
+Using Nicolaides method:
+298K        -55.77 kJ mol-1
+298K        -13.32 kcal mol-1
+
+Using G3MP2 Enthalpy:
+298K        -53.19 kJ mol-1
+298K        -12.70 kcal mol-1
+========================================================================
 \end{lstlisting}
 
 %4NBALa-2.txt
-\begin{lstlisting}
+\begin{lstlisting}[caption = Output de 4NBALa-2.txt en EnthalpyNIST]
 ./computeEnthalpyNIST.x 4NBALa-2.txt
+========================================================================
+          New calculation of molecular enthalpies of formation
 
-=============================================================
-New calculation of molecular enthalpies of formation                         
-                                                                                                   
-Enthalpies of formation of gaseous atoms at 0 K and thermal            
-corrections for elements in their standard states at 298.15 K from:                   
-                                                                                                   
-NIST-JANAF Thermochemical Tables J. Physics Chem. Data Monograph 9, 1998, 1-1951.
-=============================================================
+      Enthalpies of formation of gaseous atoms at 0 K and thermal 
+   corrections for elements in their standard state at 298.15 K from:
+
+            NIST-JANAF Thermochemical Tables J. Physics Chem. 
+                    Data Monograph 9, 1998, 1-1951.
+========================================================================
 Heats of formation:
 0K          -33.23 kJ mol-1
 0K          -7.94 kcal mol-1
@@ -611,51 +608,24 @@ Using Nicolaides method:
 Using G3MP2 Enthalpy:
 298K        -52.91 kJ mol-1
 298K        -12.64 kcal mol-1
-=============================================================
+========================================================================
 \end{lstlisting}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%2%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %2NBALa-2.txt
-\begin{lstlisting}
+\begin{lstlisting}[caption = Output de 2NBALa-2.txt en EnthalpyArgonne]
 ./computeEnthalpyArgonne.x 2NBALa-2.txt
-
-=============================================================
-New calculation of molecular enthalpies of formation                         
+========================================================================
+           New calculation of molecular enthalpies of formation                               
                                                                                                    
-Enthalpies of formation of gaseous atoms at and thermal corrections for elements in their standard states at 298.15 K from:                   
-
-           ARGONNE Thermochemical Tables                                    
-        Warning: sulfur is taken from NIST                                                                                                       
-        
-=============================================================
-Heats of formation:
-0K          -5.69 kJ mol-1
-0K          -1.36 kcal mol-1
-
-Using Nicolaides method:
-298K        -27.86 kJ mol-1
-298K        -6.65 kcal mol-1
-
-Using G3MP2 Enthalpy:
-298K        -25.19 kJ mol-1
-298K        -6.02 kcal mol-1
-=============================================================
-\end{lstlisting}
-
-%2NBALb-2.txt
-\begin{lstlisting}
-./computeEnthalpyArgonne.x 2NBALb-2.txt
-
-=============================================================
-New calculation of molecular enthalpies of formation                         
-                                                                                                   
-Enthalpies of formation of gaseous atoms at and thermal corrections for elements in their standard states at 298.15 K from:                   
-
-           ARGONNE Thermochemical Tables                                    
-        Warning: sulfur is taken from NIST                                                                                                       
-        
-=============================================================
+Enthalpies of formation of gaseous atoms at 0 K and thermal corrections 
+        for elements in their standard states at 298.15 K from:
+                                                                                                                  
+          
+                    ARGONNE Thermochemical Tables                                    
+                  Warning: sulfur is taken from NIST                                                                                                       
+========================================================================
 Heats of formation:
 0K          -15.20 kJ mol-1
 0K          -3.63 kcal mol-1
@@ -667,49 +637,49 @@ Using Nicolaides method:
 Using G3MP2 Enthalpy:
 298K        -35.01 kJ mol-1
 298K        -8.36 kcal mol-1
-=============================================================
+========================================================================
 \end{lstlisting}
 
-%3NBALb-2.txt
-\begin{lstlisting}
-./computeEnthalpyArgonne.x 3NBALa-2.txt
-
-=============================================================
-New calculation of molecular enthalpies of formation                         
+%2NBALb-2.txt
+\begin{lstlisting}[caption = Output de 2NBALb-2.txt en EnthalpyArgonne]
+./computeEnthalpyArgonne.x 2NBALb-2.txt
+========================================================================
+           New calculation of molecular enthalpies of formation                               
                                                                                                    
-Enthalpies of formation of gaseous atoms at and thermal corrections for elements in their standard states at 298.15 K from:                   
-
-           ARGONNE Thermochemical Tables                                    
-        Warning: sulfur is taken from NIST                                                                                                       
-        
-=============================================================
+Enthalpies of formation of gaseous atoms at 0 K and thermal corrections 
+        for elements in their standard states at 298.15 K from:
+                                                                                                                  
+          
+                    ARGONNE Thermochemical Tables                                    
+                  Warning: sulfur is taken from NIST                                                                                                       
+========================================================================
 Heats of formation:
-0K          -32.03 kJ mol-1
-0K          -7.65 kcal mol-1
+0K          -5.69 kJ mol-1
+0K          -1.36 kcal mol-1
 
 Using Nicolaides method:
-298K        -54.35 kJ mol-1
-298K        -12.98 kcal mol-1
+298K        -27.86 kJ mol-1
+298K        -6.65 kcal mol-1
 
 Using G3MP2 Enthalpy:
-298K        -51.78 kJ mol-1
-298K        -12.37 kcal mol-1
-=============================================================
+298K        -25.19 kJ mol-1
+298K        -6.02 kcal mol-1
+========================================================================
 \end{lstlisting}
 
 %3NBALa-2.txt
-\begin{lstlisting}
-./computeEnthalpyArgonne.x 3NBALb-2.txt
-
-=============================================================
-New calculation of molecular enthalpies of formation                         
+\begin{lstlisting}[caption = Output de 3NBALa-2.txt en EnthalpyArgonne]
+./computeEnthalpyArgonne.x 3NBALa-2.txt
+========================================================================
+           New calculation of molecular enthalpies of formation                               
                                                                                                    
-Enthalpies of formation of gaseous atoms at and thermal corrections for elements in their standard states at 298.15 K from:                   
-
-           ARGONNE Thermochemical Tables                                    
-        Warning: sulfur is taken from NIST                                                                                                       
-        
-=============================================================
+Enthalpies of formation of gaseous atoms at 0 K and thermal corrections 
+        for elements in their standard states at 298.15 K from:
+                                                                                                                  
+          
+                    ARGONNE Thermochemical Tables                                    
+                  Warning: sulfur is taken from NIST                                                                                                       
+========================================================================
 Heats of formation:
 0K          -33.76 kJ mol-1
 0K          -8.06 kcal mol-1
@@ -721,22 +691,49 @@ Using Nicolaides method:
 Using G3MP2 Enthalpy:
 298K        -53.52 kJ mol-1
 298K        -12.78 kcal mol-1
-=============================================================
+========================================================================
+\end{lstlisting}
+
+%3NBALb-2.txt
+\begin{lstlisting}[caption = Output de 3NBALb-2.txt en EnthalpyArgonne]
+./computeEnthalpyArgonne.x 3NBALb-2.txt
+========================================================================
+           New calculation of molecular enthalpies of formation                               
+                                                                                                   
+Enthalpies of formation of gaseous atoms at 0 K and thermal corrections 
+        for elements in their standard states at 298.15 K from:
+                                                                                                                  
+          
+                    ARGONNE Thermochemical Tables                                    
+                  Warning: sulfur is taken from NIST                                                                                                       
+========================================================================
+Heats of formation:
+0K          -32.03 kJ mol-1
+0K          -7.65 kcal mol-1
+
+Using Nicolaides method:
+298K        -54.35 kJ mol-1
+298K        -12.98 kcal mol-1
+
+Using G3MP2 Enthalpy:
+298K        -51.78 kJ mol-1
+298K        -12.37 kcal mol-1
+========================================================================
 \end{lstlisting}
 
 %4NBALa-2.txt
-\begin{lstlisting}
+\begin{lstlisting}[caption = Output de 4NBALa-2.txt en EnthalpyArgonne]
 ./computeEnthalpyArgonne.x 4NBALa-2.txt
-
-=============================================================
-New calculation of molecular enthalpies of formation                         
+========================================================================
+           New calculation of molecular enthalpies of formation                               
                                                                                                    
-Enthalpies of formation of gaseous atoms at and thermal corrections for elements in their standard states at 298.15 K from:                   
-
-           ARGONNE Thermochemical Tables                                    
-        Warning: sulfur is taken from NIST                                                                                                       
-        
-=============================================================
+Enthalpies of formation of gaseous atoms at 0 K and thermal corrections 
+        for elements in their standard states at 298.15 K from:
+                                                                                                                  
+          
+                    ARGONNE Thermochemical Tables                                    
+                  Warning: sulfur is taken from NIST                                                                                                       
+========================================================================
 Heats of formation:
 0K          -31.82 kJ mol-1
 0K          -7.60 kcal mol-1
@@ -748,7 +745,7 @@ Using Nicolaides method:
 Using G3MP2 Enthalpy:
 298K        -51.50 kJ mol-1
 298K        -12.30 kcal mol-1
-=============================================================
+========================================================================
 \end{lstlisting}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%3%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -760,6 +757,7 @@ Using G3MP2 Enthalpy:
 \begin{tabular}{|c|c|c|}
 \hline
 \multicolumn{3}{||c||}{$\Delta_{f}H_{m}^{\circ}(298.15 K) kJ \cdot mol^{-1}$}\\
+\hline
 \hline
 n-NBA & Ximello y otros autores & EnthalpyTajti\\ 
 \hline 
@@ -784,6 +782,7 @@ n-NBA & Ximello y otros autores & EnthalpyTajti\\
 \hline
 \multicolumn{3}{||c||}{$\Delta_{f}H_{m}^{\circ}(298.15 K) kJ \cdot mol^{-1}$}\\
 \hline
+\hline
 n-NBA & Ximello y otros autores & EnthalpyNIST\\ 
 \hline 
 2NBAa & -36.42 & -36.42\\
@@ -807,8 +806,9 @@ n-NBA & Ximello y otros autores & EnthalpyNIST\\
 \hline
 \multicolumn{3}{||c||}{$\Delta_{f}H_{m}^{\circ}(298.15 K) kJ \cdot mol^{-1}$}\\
 \hline
+\hline
 n-NBA & Ximello y otros autores & EnthalpyArgonne\\ 
-\hline 
+\hline
 2NBAa & -35.01 & -35.01\\
 \hline
 2NBAb & -25.19 & -25.19\\ 
@@ -816,7 +816,7 @@ n-NBA & Ximello y otros autores & EnthalpyArgonne\\
 3NBAa & -53.52 & -53.52\\
 \hline
 3NBAb & -51.78 & -51.78\\ 
-\hline 
+\hline
 4NBAa & -51.50 & -51.50\\ 
 \hline  
 \end{tabular} 
