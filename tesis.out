@@ -1,0 +1,49 @@
+\BOOKMARK [0][-]{chapter.1}{Introducci\363n}{}% 1
+\BOOKMARK [0][-]{chapter.2}{Objetivo y Justificaci\363n}{}% 2
+\BOOKMARK [1][-]{section.2.1}{Objetivos}{chapter.2}% 3
+\BOOKMARK [2][-]{subsection.2.1.1}{Objetivo General}{section.2.1}% 4
+\BOOKMARK [2][-]{subsection.2.1.2}{Objetivos Particulares}{section.2.1}% 5
+\BOOKMARK [1][-]{section.2.2}{Justificaci\363n}{chapter.2}% 6
+\BOOKMARK [0][-]{chapter.3}{Marco te\363rico}{}% 7
+\BOOKMARK [1][-]{section.3.1}{Energ\355a}{chapter.3}% 8
+\BOOKMARK [1][-]{section.3.2}{Entalp\355a de reacci\363n}{chapter.3}% 9
+\BOOKMARK [1][-]{section.3.3}{Calorimetr\355a}{chapter.3}% 10
+\BOOKMARK [1][-]{section.3.4}{Entalp\355a de formaci\363n est\341ndar}{chapter.3}% 11
+\BOOKMARK [1][-]{section.3.5}{Ley de Hess}{chapter.3}% 12
+\BOOKMARK [1][-]{section.3.6}{Qu\355mica computacional}{chapter.3}% 13
+\BOOKMARK [1][-]{section.3.7}{M\351todos Gaussianos}{chapter.3}% 14
+\BOOKMARK [1][-]{section.3.8}{M\351todos CBS}{chapter.3}% 15
+\BOOKMARK [1][-]{section.3.9}{Comparacion entre m\351todos}{chapter.3}% 16
+\BOOKMARK [1][-]{section.3.10}{M\351todo de atomizaci\363n}{chapter.3}% 17
+\BOOKMARK [1][-]{section.3.11}{Relaciones Generales de Termodin\341mica Estad\355stica}{chapter.3}% 18
+\BOOKMARK [2][-]{subsection.3.11.1}{Funci\363n de partici\363n}{section.3.11}% 19
+\BOOKMARK [2][-]{subsection.3.11.2}{Funciones termodin\341micas}{section.3.11}% 20
+\BOOKMARK [2][-]{subsection.3.11.3}{C\341lculos pr\341cticos}{section.3.11}% 21
+\BOOKMARK [2][-]{subsection.3.11.4}{Funci\363n de partici\363n traslacional}{section.3.11}% 22
+\BOOKMARK [2][-]{subsection.3.11.5}{Funci\363n de partici\363n rotacional}{section.3.11}% 23
+\BOOKMARK [2][-]{subsection.3.11.6}{Funci\363n de partici\363n vibracional}{section.3.11}% 24
+\BOOKMARK [2][-]{subsection.3.11.7}{Funci\363n de partici\363n electr\363nica}{section.3.11}% 25
+\BOOKMARK [2][-]{subsection.3.11.8}{C\341lculo de entalp\355a mediante Termod\355namica Estad\355stica}{section.3.11}% 26
+\BOOKMARK [1][-]{section.3.12}{Aproximaci\363n de Nicolaides y otros autores}{chapter.3}% 27
+\BOOKMARK [0][-]{chapter.4}{Resultados y discusi\363n}{}% 28
+\BOOKMARK [1][-]{section.4.1}{Algoritmo \(dise\361o del programa\)}{chapter.4}% 29
+\BOOKMARK [2][-]{subsection.4.1.1}{Inicio}{section.4.1}% 30
+\BOOKMARK [2][-]{subsection.4.1.2}{Paso 1 del diagrama de flujo general}{section.4.1}% 31
+\BOOKMARK [2][-]{subsection.4.1.3}{Paso 2 del diagrama de flujo general}{section.4.1}% 32
+\BOOKMARK [2][-]{subsection.4.1.4}{Paso 3 del diagrama de flujo general}{section.4.1}% 33
+\BOOKMARK [2][-]{subsection.4.1.5}{Paso 4 del diagrama de flujo general}{section.4.1}% 34
+\BOOKMARK [2][-]{subsection.4.1.6}{Paso 5 del diagrama de flujo general}{section.4.1}% 35
+\BOOKMARK [2][-]{subsection.4.1.7}{Paso 6 del diagrama de flujo general}{section.4.1}% 36
+\BOOKMARK [2][-]{subsection.4.1.8}{Paso 7, 8 y 9 del diagrama de flujo general}{section.4.1}% 37
+\BOOKMARK [2][-]{subsection.4.1.9}{Paso 10 del diagrama de flujo general}{section.4.1}% 38
+\BOOKMARK [2][-]{subsection.4.1.10}{Paso 11 del diagrama de flujo general}{section.4.1}% 39
+\BOOKMARK [1][-]{section.4.2}{C\363digo}{chapter.4}% 40
+\BOOKMARK [1][-]{section.4.3}{Conjunto de pruebas}{chapter.4}% 41
+\BOOKMARK [2][-]{subsection.4.3.1}{Conjunto de pruebas: 2NBA, 3NBA y 4NBA}{section.4.3}% 42
+\BOOKMARK [0][-]{chapter.5}{Conclusi\363n}{}% 43
+\BOOKMARK [0][-]{appendix.Alph1}{Funcionamiento del programa}{}% 44
+\BOOKMARK [0][-]{appendix.Alph2}{Programas adicionales}{}% 45
+\BOOKMARK [1][-]{section.Alph2.1}{EnthalpyNIST}{appendix.Alph2}% 46
+\BOOKMARK [1][-]{section.Alph2.2}{EnthalpyTajti}{appendix.Alph2}% 47
+\BOOKMARK [1][-]{section.Alph2.3}{EnthalpyArgonne}{appendix.Alph2}% 48
+\BOOKMARK [0][-]{section.Alph2.3}{Referencias}{}% 49
