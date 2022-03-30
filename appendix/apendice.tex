@@ -8,18 +8,17 @@ $computeEnthalpyNIST.x$
 
 El funcionamiento adecuado de \textbf{EnthalpyNIST} se muestra a continuación.
 
-\begin{lstlisting}
+\begin{lstlisting}[caption = Output de CH3OH-G4.txt en EnthalpyNIST]
 $./computeEnthalpyNIST.x  CH3OH-G4.txt$
+========================================================================
+          New calculation of molecular enthalpies of formation
 
-=============================================================
-     New calculation of molecular enthalpies of formation
+      Enthalpies of formation of gaseous atoms at 0 K and thermal 
+   corrections for elements in their standard state at 298.15 K from:
 
-Enthalpies of formation of gaseous atoms at 0 K and thermal 
-corrections for elements in their standard state at 298.15 K from:
-
-      NIST-JANAF Thermochemical Tables J. Physics Chem. 
-                Data Monograph 9, 1998, 1-1951.
-=============================================================
+            NIST-JANAF Thermochemical Tables J. Physics Chem. 
+                    Data Monograph 9, 1998, 1-1951.
+========================================================================
 Heats of formation:
 0K          -190.11 kJ mol-1
 0K          -45.41 kcal mol-1
@@ -31,7 +30,7 @@ Using Nicolaides method:
 Using G4: 
 298K        -201.21 kJ mol-1
 298K        -48.06 kcal mol-1
-=============================================================
+========================================================================
 \end{lstlisting}
 
 Al correr el programa sin un archivo de lectura se visualizará la siguiente información:
@@ -81,12 +80,12 @@ Muestra un menú de ayuda para el manejo del programa.
 
 \chapter{Programas adicionales}
 
-Además del programa \textbf{EnthalpyNIST}, se crearon 2 programas que permiten determinar la entalpía de formación por distintos métodos al G4 de \textbf{Guassian09}, con diferentes valores reportados en la literatura científica \cite{Simmie2015,NIST1998,Tajti2004}. Sus usos e interfaces son semejantes a \textbf{EnthalpyNIST}, por consiguiente, existe la posibilidad de incorporar nuevos métodos a dichos programas. Los siguientes hipervínculos contienen por separado, los 3 repositorios de los programas creados en este trabajo.
+Además del programa \textbf{EnthalpyNIST}, se crearon 2 programas que permiten determinar la entalpía de formación por distintos métodos al G4 de \textbf{Guassian09}, con diferentes valores reportados en la literatura científica \cite{Simmie2015,NIST1998,Tajti2004}. Sus usos e interfaces son semejantes a \textbf{EnthalpyNIST}, por consiguiente, existe la posibilidad de incorporar nuevos métodos a dichos programas. Los siguientes hipervínculos contienen por separado, los 3 repositorios de los programas creados en este trabajo.\\
 
 
-\url{https://github.com/Edgargj/EnthalpyNIST} \\
-\url{https://github.com/Edgargj/EnthalpyTajti} \\
-\url{https://github.com/Edgargj/EnthalpyArgonne} \\
+\url{https://github.com/Edgargj/EnthalpyNIST}\\
+\url{https://github.com/Edgargj/EnthalpyTajti}\\
+\url{https://github.com/Edgargj/EnthalpyArgonne}\\
 
 \section{EnthalpyNIST}
 
