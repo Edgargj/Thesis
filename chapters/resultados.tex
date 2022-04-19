@@ -89,26 +89,26 @@ Como tercer paso en el diagrama general se encuentra la determinación del méto
 En este paso se realiza el cálculo de la entalpía de atomización a T = 0 K de la molécula. Aquí se utilizan los valores del método G4 para cada uno de los átomos presentes en la \textbf{molécula X}, la cantidad estequiométrica de estos y la entalpía G4 de la molécula a T = 0 K (veáse las ecuaciones \ref{eq:4.1} y \ref{eq:4.2}). Para concluir, se realiza una conversión de unidades de energía (hartree a kJ). Obsérvese las ecuaciones \ref{eq:4.4} y \ref{eq:4.5}.
 
 \begin{equation}
-\Delta H^{\circleddash}_{a0}(CH_3OH) = \Delta H^{total}_{0K} (C(^{3}P) + 4H(^{2}S) + O(^{3}S))- \Delta E^{total}_{0K} (CH_{3}OH)
+\Delta_{a0} H^{\circleddash}(CH_3OH) = \Delta_{0K} H^{total} (C(^{3}P) + 4H(^{2}S) + O(^{3}S))- \Delta_{0K} E^{total} (CH_{3}OH)
 \label{eq:4.1}
 \end{equation}
 
 \begin{equation}
-\Delta H^{\circleddash}_{a0}(CH_3OH) = -37.834170 + 4(-0.501420) - 75.045500 -(-115.651767) \: h
+\Delta_{a0} H^{\circleddash}(CH_3OH) = -37.834170 + 4(-0.501420) - 75.045500 -(-115.651767) \: h
 \label{eq:4.2}
 \end{equation}
 
 \begin{equation}
-\Delta H^{\circleddash}_{a0}(CH_3OH) = -114.885349 + 115.651767 \: h
+\Delta_{a0} H^{\circleddash}(CH_3OH) = -114.885349 + 115.651767 \: h
 \end{equation}
 
 \begin{equation}
-\Delta H^{\circleddash}_{a0}(CH_3OH) = (-0.766417 \:h)(2625.4997480 \:kJ\cdot mol^{-1})
+\Delta_{a0} H^{\circleddash}(CH_3OH) = (-0.766417 \:h)(2625.4997480 \:kJ\cdot mol^{-1})
 \label{eq:4.4}
 \end{equation}
 
 \begin{equation}
-\Delta H^{\circleddash}_{a0}(CH_3OH) = 2012.2276 \:kJ\cdot mol^{-1}
+\Delta_{a0} H^{\circleddash}(CH_3OH) = 2012.2276 \:kJ\cdot mol^{-1}
 \label{eq:4.5}
 \end{equation}
  
@@ -117,31 +117,31 @@ En este paso se realiza el cálculo de la entalpía de atomización a T = 0 K de
 Hecho lo anterior, se realiza el cálculo de la entalpía de formación a T = 0 K de la molécula. Nuevamente, se utilizan valores experimentales para cada uno de los átomos presentes en la molécula junto con su cantidad especifica y el valor de la entalpía de atomización a T = 0 K obtenido anteriormente (ecuaciones \ref{eq:4.6} y \ref{eq:4.7}). Al valor obtenido en este paso se le conoce como \textbf{calor de formación} (ecuación \ref{eq:4.9}). Por último, se realiza una conversión de unidades de energía (kJ a kcal), ver las ecuaciones \ref{eq:4.10} y \ref{eq:4.11}. 
 
 \begin{equation}
-\Delta H^{\circleddash}_{f0}(CH_3OH) = \Delta H^{\circleddash}_{f0} (C(^{3}P) + 4H(^{2}S) + O(^{3}S))- \Delta E^{\circleddash}_{f0} (CH_{3}OH)
+\Delta_{f0} H^{\circleddash}(CH_3OH) = \Delta_{f0} H^{\circleddash}(C(^{3}P) + 4H(^{2}S) + O(^{3}S))- \Delta_{f0} E^{\circleddash} (CH_{3}OH)
 \label{eq:4.6}
 \end{equation}
 
 \begin{equation}
-\Delta H^{\circleddash}_{f0}(CH_3OH) = 711.185 + 4(216.03500) + 246.7900 - 2012.2276 \:kJ\cdot mol^{-1}
+\Delta_{f0} H^{\circleddash}(CH_3OH) = 711.185 + 4(216.03500) + 246.7900 - 2012.2276 \:kJ\cdot mol^{-1}
 \label{eq:4.7}
 \end{equation}
 
 \begin{equation}
-\Delta H^{\circleddash}_{f0}(CH_3OH) = 1822.115 - 2012.2276 \:kJ\cdot mol^{-1}
+\Delta_{f0} H^{\circleddash}(CH_3OH) = 1822.115 - 2012.2276 \:kJ\cdot mol^{-1}
 \end{equation}
 
 \begin{equation}
-\Delta H^{\circleddash}_{f0}(CH_3OH) = -190.1126 \:kJ\cdot mol^{-1}
+\Delta_{f0} H^{\circleddash}(CH_3OH) = -190.1126 \:kJ\cdot mol^{-1}
 \label{eq:4.9}
 \end{equation}
 
 \begin{equation}
-\Delta H^{\circleddash}_{f0}(CH_3OH) = (-190.1126 \:kJ\cdot mol^{-1})(0.023888 \:kcal)
+\Delta_{f0} H^{\circleddash}(CH_3OH) = (-190.1126 \:kJ\cdot mol^{-1})(0.023888 \:kcal)
 \label{eq:4.10}
 \end{equation}
 
 \begin{equation}
-	\Delta H^{\circleddash}_{f0}(CH_3OH) = -45.41 \:kcal
+\Delta_{f0} H^{\circleddash}(CH_3OH) = -45.41 \:kcal
 \label{eq:4.11}
 \end{equation}
 
@@ -176,32 +176,32 @@ El paso 5 se encarga de cuantificar la diferencia entre las  dos cantidades G4 (
 En el paso 6 se obtiene el valor de la entalpía de formación a T = 298.15 K (sumando el calor de formación, la diferencia de las dos cantidades G4 y restando los incrementos correspondientes para los elementos de la molécula en sus estados estándar), en consecuencia, son usados los valores obtenidos en los pasos 4 y 5 (veáse las ecuaciones \ref{eq:4.16}, \ref{eq:4.17}, \ref{eq:4.18} y \ref{eq:4.19}). Finalmente, se realiza una conversión de unidades de energía de kJ a kcal (ecuaciones \ref{eq:4.20} y \ref{eq:4.21}).
 
 \begin{multline}
-\Delta H^{\circleddash}_{f298}(CH_3OH) = \Delta H^{\circleddash}_{f0}(CH_{3}OH) + \Delta \Delta H^{\circleddash} (CH_{3}OH) \\ - (\Delta \Delta H^{\circleddash} (C) + 2 \Delta \Delta H^{\circleddash}(H_{2}) + \frac{1}{2} \Delta \Delta H^{\circleddash}(O_{2}))
+\Delta_{f298} H^{\circleddash}(CH_3OH) = \Delta_{f0} H^{\circleddash}(CH_{3}OH) + \Delta \Delta H^{\circleddash} (CH_{3}OH) \\ - (\Delta \Delta H^{\circleddash} (C) + 2 \Delta \Delta H^{\circleddash}(H_{2}) + \frac{1}{2} \Delta \Delta H^{\circleddash}(O_{2}))
 \label{eq:4.16}
 \end{multline}
 
 \begin{multline}
-\Delta H^{\circleddash}_{f298}(CH_3OH) = -190.1126 + 11.23188  \\ - (1.05100 + 2(8.46700) + \frac{1}{2} (8.67000))\:kJ\cdot mol^{-1}
+\Delta_{f298} H^{\circleddash}(CH_3OH) = -190.1126 + 11.23188  \\ - (1.05100 + 2(8.46700) + \frac{1}{2} (8.67000))\:kJ\cdot mol^{-1}
 \label{eq:4.17}
 \end{multline}
 
 \begin{equation}
-\Delta H^{\circleddash}_{f298}(CH_3OH) = -190.1126 + 11.23188 - 22.3265\:kJ\cdot mol^{-1}
+\Delta_{f298} H^{\circleddash}(CH_3OH) = -190.1126 + 11.23188 - 22.3265\:kJ\cdot mol^{-1}
 \label{eq:4.18}
 \end{equation}
 
 \begin{equation}
-\Delta H^{\circleddash}_{f298}(CH_3OH) = -201.21\:kJ\cdot mol^{-1}
+\Delta_{f298} H^{\circleddash}(CH_3OH) = -201.21\:kJ\cdot mol^{-1}
 \label{eq:4.19}
 \end{equation}
 
 \begin{equation}
-\Delta H^{\circleddash}_{f298}(CH_3OH) = (-201.21 \:kJ\cdot mol^{-1})(0.023888 \:kcal)
+\Delta_{f298} H^{\circleddash}(CH_3OH) = (-201.21 \:kJ\cdot mol^{-1})(0.023888 \:kcal)
 \label{eq:4.20}
 \end{equation}
 
 \begin{equation}
-\Delta H^{\circleddash}_{f298}(CH_3OH) = -48.06 \:kcal
+\Delta_{f298} H^{\circleddash}(CH_3OH) = -48.06 \:kcal
 \label{eq:4.21}
 \end{equation}
 
@@ -233,18 +233,18 @@ El paso 9 simplemente remplaza el valor obtenido anteriormente (energía interna
 
 
 \begin{equation}
-\Delta H^{\circleddash}_{f298}(CH_3OH) = -190.1126 + 11.2310 - 22.3265\:kJ\cdot mol^{-1}
+\Delta_{f298} H^{\circleddash}(CH_3OH) = -190.1126 + 11.2310 - 22.3265\:kJ\cdot mol^{-1}
 \label{eq:4.23}
 \end{equation}
 
 \begin{equation}
-\Delta H^{\circleddash}_{f298}(CH_3OH) = -201.21\:kJ\cdot mol^{-1}
+\Delta_{f298} H^{\circleddash}(CH_3OH) = -201.21\:kJ\cdot mol^{-1}
 \label{eq:4.24}
 \end{equation}
 
 
 \begin{equation}
-\Delta H^{\circleddash}_{f298}(CH_3OH) = -48.06 \:kcal
+\Delta_{f298} H^{\circleddash}(CH_3OH) = -48.06 \:kcal
 \label{eq:4.25}
 \end{equation}
 
@@ -277,7 +277,7 @@ Using G4:
 \end{lstlisting}
 
 \section{Código}
-El lenguaje de programación utilizado para la creación de estos programas se conoce como c++. El motivo principal de su uso fue la implementación de una programación orientada a objetos que fragmentó el código en partes independientes, permitiendo así, reciclar el código para futuros proyectos \cite{cplusplus2005}. A continuación, se explican las diferentes clases que existen en este programa.
+El lenguaje de programación utilizado para la creación de estos programas se conoce como c++. El motivo principal de su uso fue la implementación de una programación orientada a objetos que fragmentó el código en partes independientes, permitiendo así, reciclar el código para futuros proyectos \cite{cplusplus2005, Deitel2014, Pitt2017}. A continuación, se explican las diferentes clases que existen en este programa.
 
 \subsection*{Clases}
 Ahora, se enlistan los nombres de las clases utilizadas para estos programas:
@@ -304,7 +304,7 @@ Enthalpyinputdata se encarga de leer los datos (provenientes de Gaussian) del ar
 	\item Número de modos de vibración.
 	\item Frecuencias vibracionales de la molécula.
 \end{itemize}
-La finalidad de esta clase es determinar la información indispensable para comenzar con el cálculo de la entalpía de formación. 
+La finalidad de esta clase es determinar la información indispensable para comenzar con el cálculo de la entalpía de formación \cite{Pitt2017}. 
 
 \subsection*{Clase Method}
 La clase Method es utilizada para seleccionar el tipo de método que se realizó en Gaussian, y así, devolver valores específicos para los átomos de Hidrógeno, Carbono, Oxígeno, Nitrógeno, Flúor y Azufre.
