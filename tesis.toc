@@ -1,0 +1,58 @@
+\babel@toc {spanish}{}
+\contentsline {chapter}{\numberline {1}Introducción}{1}{chapter.1}%
+\contentsline {chapter}{\numberline {2}Objetivo y Justificación}{6}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Objetivos}{6}{section.2.1}%
+\contentsline {subsection}{\numberline {2.1.1}Objetivo General}{6}{subsection.2.1.1}%
+\contentsline {subsection}{\numberline {2.1.2}Objetivos Particulares}{6}{subsection.2.1.2}%
+\contentsline {section}{\numberline {2.2}Justificación}{7}{section.2.2}%
+\contentsline {chapter}{\numberline {3}Marco teórico}{8}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Energía}{8}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Entalpía de reacción}{9}{section.3.2}%
+\contentsline {section}{\numberline {3.3}Calorimetría}{10}{section.3.3}%
+\contentsline {section}{\numberline {3.4}Entalpía de formación estándar}{10}{section.3.4}%
+\contentsline {section}{\numberline {3.5}Ley de Hess}{12}{section.3.5}%
+\contentsline {section}{\numberline {3.6}Química computacional}{14}{section.3.6}%
+\contentsline {section}{\numberline {3.7}Métodos Gaussianos}{15}{section.3.7}%
+\contentsline {section}{\numberline {3.8}Métodos CBS}{17}{section.3.8}%
+\contentsline {section}{\numberline {3.9}Comparacion entre métodos}{18}{section.3.9}%
+\contentsline {section}{\numberline {3.10}Método de atomización}{19}{section.3.10}%
+\contentsline {section}{\numberline {3.11}Relaciones Generales de Termodinámica Estadística}{25}{section.3.11}%
+\contentsline {subsection}{\numberline {3.11.1}Función de partición}{26}{subsection.3.11.1}%
+\contentsline {subsection}{\numberline {3.11.2}Funciones termodinámicas}{27}{subsection.3.11.2}%
+\contentsline {subsection}{\numberline {3.11.3}Cálculos prácticos}{27}{subsection.3.11.3}%
+\contentsline {subsection}{\numberline {3.11.4}Función de partición traslacional}{28}{subsection.3.11.4}%
+\contentsline {subsection}{\numberline {3.11.5}Función de partición rotacional}{28}{subsection.3.11.5}%
+\contentsline {subsection}{\numberline {3.11.6}Función de partición vibracional}{29}{subsection.3.11.6}%
+\contentsline {subsection}{\numberline {3.11.7}Función de partición electrónica}{30}{subsection.3.11.7}%
+\contentsline {subsection}{\numberline {3.11.8}Cálculo de entalpía mediante Termodinámica Estadística}{30}{subsection.3.11.8}%
+\contentsline {section}{\numberline {3.12}Aproximación de Nicolaides y otros autores}{30}{section.3.12}%
+\contentsline {section}{\numberline {3.13}Hardware y software}{31}{section.3.13}%
+\contentsline {section}{\numberline {3.14}Lenguajes}{32}{section.3.14}%
+\contentsline {subsection}{\numberline {3.14.1}Lenguajes máquina}{32}{subsection.3.14.1}%
+\contentsline {subsection}{\numberline {3.14.2}Lenguajes ensambladores}{32}{subsection.3.14.2}%
+\contentsline {subsection}{\numberline {3.14.3}Lenguajes de alto nivel}{32}{subsection.3.14.3}%
+\contentsline {section}{\numberline {3.15}Una breve introducción a C++}{33}{section.3.15}%
+\contentsline {subsection}{\numberline {3.15.1}Alcance de C++ en el ámbito científico}{33}{subsection.3.15.1}%
+\contentsline {subsection}{\numberline {3.15.2}C++ y la programación orientado a objetos}{35}{subsection.3.15.2}%
+\contentsline {chapter}{\numberline {4}Resultados y discusión}{37}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Algoritmo (diseño del programa)}{37}{section.4.1}%
+\contentsline {subsection}{\numberline {4.1.1}Inicio}{39}{subsection.4.1.1}%
+\contentsline {subsection}{\numberline {4.1.2}Paso 1 del diagrama de flujo general}{40}{subsection.4.1.2}%
+\contentsline {subsection}{\numberline {4.1.3}Paso 2 del diagrama de flujo general}{41}{subsection.4.1.3}%
+\contentsline {subsection}{\numberline {4.1.4}Paso 3 del diagrama de flujo general}{41}{subsection.4.1.4}%
+\contentsline {subsection}{\numberline {4.1.5}Paso 4 del diagrama de flujo general}{42}{subsection.4.1.5}%
+\contentsline {subsection}{\numberline {4.1.6}Paso 5 del diagrama de flujo general}{43}{subsection.4.1.6}%
+\contentsline {subsection}{\numberline {4.1.7}Paso 6 del diagrama de flujo general}{43}{subsection.4.1.7}%
+\contentsline {subsection}{\numberline {4.1.8}Paso 7, 8 y 9 del diagrama de flujo general}{44}{subsection.4.1.8}%
+\contentsline {subsection}{\numberline {4.1.9}Paso 10 del diagrama de flujo general}{46}{subsection.4.1.9}%
+\contentsline {subsection}{\numberline {4.1.10}Paso 11 del diagrama de flujo general}{46}{subsection.4.1.10}%
+\contentsline {section}{\numberline {4.2}Código}{47}{section.4.2}%
+\contentsline {section}{\numberline {4.3}Conjunto de pruebas}{49}{section.4.3}%
+\contentsline {subsection}{\numberline {4.3.1}Conjunto de pruebas: 2NBA, 3NBA y 4NBA}{50}{subsection.4.3.1}%
+\contentsline {chapter}{\numberline {5}Conclusión}{65}{chapter.5}%
+\contentsline {chapter}{\numberline {A}Funcionamiento del programa}{66}{appendix.Alph1}%
+\contentsline {chapter}{\numberline {B}Programas adicionales}{70}{appendix.Alph2}%
+\contentsline {section}{\numberline {B.1}EnthalpyNIST}{70}{section.Alph2.1}%
+\contentsline {section}{\numberline {B.2}EnthalpyTajti}{71}{section.Alph2.2}%
+\contentsline {section}{\numberline {B.3}EnthalpyArgonne}{71}{section.Alph2.3}%
+\contentsline {chapter}{Referencias}{72}{section.Alph2.3}%
