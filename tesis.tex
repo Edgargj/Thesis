@@ -43,6 +43,7 @@
 \usepackage{tikz}
 \usepackage{indentfirst}
 \usepackage[hidelinks]{hyperref}
+\usepackage[acronym]{glossaries}
 \lstset{language=C++%
 ,basicstyle=\normalsize%
 ,backgroundcolor=\color{yellow!10}%
@@ -142,11 +143,11 @@
 \listoffigures
 \newpage
 \listoftables
-%\include{../chapters/resumen.tex}
+\newpage
+\input{chapters/acronimo.tex}
 \newpage
 % EMPEZAMOS LOS CAPÍTULOS
 \mainmatter
-%\input{chapters/dedicatoria.tex}
 \input{chapters/introduccion.tex}
 %\include{../chobjetivos}
 \input{chapters/objetivo.tex}
@@ -157,8 +158,6 @@
 % EMPIEZAN LOS APENDICES
 \appendix
 \input{appendix/apendice.tex}
-%\addcontentsline{toc}{chapter}{Índice de figuras}
-%\addcontentsline{toc}{chapter}{Índice de tablas}
 \backmatter
 % AQUÍ VA LA BIBLIOGRAFÍA
 \markright{Referencias}
